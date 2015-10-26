@@ -1,0 +1,1 @@
+<cfoutput><cflocation url="#application.url#/public/skins/#form.publication#/email.cfm?date=#form.date#" addtoken="No"></cfoutput>

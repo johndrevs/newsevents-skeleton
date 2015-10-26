@@ -1,0 +1,5 @@
+<div id="search"><form method="get" action="http://www.google.com/u/loyolachicago">
+<img src="images/quick_search.gif" width="89" height="16" alt="Quick Search" border="0" /><br /><input type=hidden 
+name=hq value="inurl:www.luc.edu/" /><input type="text" class="searchbox" name="q" size="15"  maxlength="255" value="" /><input type="image" src="images/go_btn.gif" alt="Search" align="top" border="0" /><div class="searchlinks"><a class="redlink" 
+href="http://google.luc.edu/basics.html">Help</a><img src="images/space.gif" width="7" height="2" alt=" " /><a class="redlink" href="http://google.luc.edu/search?ie=&site=luc&output=xml_no_dtd&client=luc&access=p&lr=&ip=10.22.6.10&proxystylesheet=luc&oe=&proxycustom=<ADVANCED/>">Advanced</a></div></form>
+</div>

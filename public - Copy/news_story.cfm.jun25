@@ -1,0 +1,152 @@
+<cfquery name="getnews" datasource="#application.datasource_select#">
+select content_clob,content_clob2, pubdate, pulldate, shorttitle, bylinetitle,dateline, news.newsid, longtitle,DESC_CLOB,created,byline,image_link,link_override,article_link
+from CUNVMCS.news
+where newsID=#url.newsid#</cfquery>
+
+<cfset temp = "#getnews.content_clob##getnews.content_clob2#">
+<cfset temp2 = replace(temp,chr(13)&chr(10)&chr(13)&chr(10),"<p>","all")>
+<cfset temp3 = replace(temp2,chr(13)&chr(10),"<br/>","all")>
+<cfset temp4 = replace(temp3,chr(32)&chr(32)&chr(32),"&nbsp;&nbsp;&nbsp;","all")>
+<cfset FormatBody= replace(temp4,chr(9),"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;","all")>
+<cfset description="#getnews.DESC_CLOB#">
+<cfset pubdate="#getnews.pubdate#">
+<cfset pulldate="#getnews.pulldate#">
+<cfset longtitle="#getnews.longtitle#">
+<cfset shorttitle="#getnews.shorttitle#">
+<cfset byline="#getnews.byline#">
+<cfset bylinetitle="#getnews.bylinetitle#">
+<cfset dateline="#getnews.dateline#">
+<cfset content="#getnews.content_clob#">
+<cfset image_link="#getnews.image_link#">	
+	<cfset article_link="#getnews.article_link#">			
+	<cfset link_override="#getnews.link_override#">	
+<cfif isDefined("url.siteid")>
+<cfset url.siteid=#url.siteid#>
+<cfelse>
+<cfset url.siteid=0>
+</cfif>
+
+
+<cfquery datasource="#application.datasource_select#" name="getpublication">
+SELECT site_name
+FROM CUNVMCS.sites
+where siteid=#url.siteid#
+</cfquery>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Loyola University Chicago: University News</title>
+	
+<meta name="keywords" content="Loyola University Chicago" />
+<meta name="description" content="Loyola University Chicago" />	
+
+<link rel="Stylesheet" href="http://www.luc.edu/styles/news_events.css" type="text/css" />
+
+<script language="JavaScript" src="http://www.luc.edu/scripts/javascripts/mouseover.js" type="text/javascript"></script>
+<script language="JavaScript" src="http://www.luc.edu/scripts/javascripts/selectjump.js" type="text/javascript"></script>
+</head>
+
+<body bgcolor="#DDDDDD" onload="MM_preloadImages('/images/azindex_btn_f2.gif','/images/contact_btn_f2.gif','/images/directories_btn_f2.gif','/images/loyolahome_btn_f2.gif','/images/calendar_btn_f2.gif');">
+
+<!-- main header table -->
+<table id="header" summary="header container" width="100%" cellpadding="0" cellspacing="0" border="0">
+<!-- header row 1 -->
+<tr>
+	<td id="column2" colspan="2" align="right" valign="top" width="100%"><cfinclude template="/newsevents/public/ssi/topnav.cfm"></td></tr>
+<!-- header column 2 -->
+<tr>
+	<td id="column1" width="230" valign="top"><a href="http://www.luc.edu"><img src="http://www.luc.edu/display/images/306_logo_school.gif" width="230" height="60" alt="Loyola University Chicago Home" border="0" /></a></td>
+	<td id="column2" width="100%" valign="top" align="right"><div style="text-align:left;"><img src="images/hdr_news.gif" width="400" height="60" alt="University News" /></div></td></tr>
+</table>
+<!-- end header table -->
+
+
+<!-- content table -->
+<table id="content" summary="content container" width="100%" cellpadding="0" cellspacing="0" border="0">
+
+
+<!-- spacer --><tr><td colspan="2"><img src="/images/space.gif" width="1" height="15" alt=" " border="0" /></td></tr>
+
+<!-- true content row -->
+<tr valign="top">
+<!-- column 1 -->
+<td width="75%"><div class="text70">
+<div class="column">
+
+<!-- headlines pagelet -->
+<cfoutput><div class="pagelet_grey">
+<div class="pagelet_title"><h2><cfif url.siteid EQ 0>University Newsroom<cfelse>#getpublication.site_name#</cfif></h2></div>
+<div class="pagelet_content">
+
+<div class="vspace10b">&laquo; <cfif url.siteid EQ 0><a href="news.cfm?siteid=#url.siteid#">Back to University Newsroom</a><cfelse><a href="news_pub.cfm?siteid=#url.siteid#">#getpublication.site_name#</a></cfif></div>
+
+<cfif variables.shorttitle eq variables.longtitle or variables.longtitle is ''><h2>#variables.shorttitle#</h2>
+<cfelseif variables.shorttitle is ''><h2>#variables.longtitle#</h2>
+<cfelse>
+<h2>#variables.longtitle#</h2>
+<strong>#variables.shorttitle#</strong>
+</cfif>
+#variables.byline#<br/>
+#variables.bylinetitle#
+
+<p class="smgrey">#variables.dateline#</p>
+<cfif isDefined("getnews.newsid") and  fileexists('#application.dir#/public/images/#getnews.newsid#.jpg')><img src="/newsevents/public/images/#getnews.newsid#.jpg" alt="#shorttitle#" class="copyimage_l" /><cfelseif  variables.image_link neq ''><img src="#variables.image_link#" alt="#variables.shorttitle#" border="0" align="left"></cfif>
+#variables.FormatBody#
+
+
+</div><p>&nbsp;</p>
+</div>	</cfoutput>
+<!-- end headlines pagelet -->
+
+
+
+
+
+
+</div></div>
+
+</td>
+
+<!-- column 2 -->
+<td width="25%" class="dashrule"><div class="column_right">
+<div class="text70">
+
+<!-- main nav -->
+
+<cfinclude template="/newsevents/public/ssi/news_nav.cfm">
+
+
+
+<!-- end main nav -->
+
+<!-- upcoming events pagelet -->
+<cfinclude template="/newsevents/public/pagelets/upcoming_events.cfm">
+<!-- end upcoming events pagelet -->
+
+
+
+
+
+</div></div></td>
+</tr>
+<!-- end true content row -->
+
+<!-- spacer --><tr><td colspan="2"><img src="http://www.luc.edu/images/space.gif" width="1" height="15" alt=" " border="0" /></td></tr>
+
+<!-- row for promise -->
+<tr><td colspan="2" id="bottomstripe"><img src="http://www.luc.edu/images/space.gif" width="352" height="18" alt="space" border="0" /></td></tr>
+
+
+</table>
+<!-- end main content table -->
+
+<!-- custom footer -->
+<cfinclude template="/newsevents/public/ssi/calendar_footer.shtml">
+
+
+</body>
+</html>

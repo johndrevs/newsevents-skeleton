@@ -1,0 +1,12 @@
+<cfif getnews.recordcount lt 1>
+<cfset line="<li><a href='http://www.luc.edu/president/'"&">Welcome from Rev. Michael J. Garanzini, S.J.</a></li><li><a href='http://www.luc.edu/about/chicago.shtml'"&">Loyola and Chicago</a></li><li><a href='http://www.luc.edu/keyfacts'"&">Loyola Facts 2005</a></li>">
+<cfelseif (getsiteinfo.maxrows-getnews.recordcount) eq 1>
+<cfset line="<li><a href='http://www.luc.edu/keyfacts'"&">Loyola Facts 2005</a></li>">
+<cfelseif (getsiteinfo.maxrows-getnews.recordcount) eq 2>
+<cfset line="<li><a href='http://www.luc.edu/about/chicago.shtml'"&">Loyola and Chicago</a></li><li><a href='http://www.luc.edu/keyfacts'"&">Loyola Facts 2005</a></li>">
+<cfelse>
+<cfset line=''>
+</cfif>
+
+
+<cfloop query="getnews"><cfset line="#line#"&"<li><a href='http://maia.mw.luc.edu/newsevents/public/news.cfm?newsid=#newsid#'"&">#shorttitle#</a></li>"></cfloop>

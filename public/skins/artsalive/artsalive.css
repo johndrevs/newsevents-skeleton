@@ -1,0 +1,93 @@
+
+.text {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	line-height: 14px;
+	color: #000000;
+	width: auto;
+	padding: 0px;
+	margin-top: 0px;
+	margin-left: 0px;
+	text-transform: none;
+	letter-spacing: normal;
+}
+a:link {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-style: normal;
+	line-height: 16px;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #F2B119;
+	text-decoration: none;
+	margin-top: 0px;
+	margin-left: 0px;
+}
+a:visited {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-style: normal;
+	line-height: 16px;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #F2B119;
+	text-decoration: none;
+	margin-top: 0px;
+	margin-left: 0px;
+}
+a:hover {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-style: normal;
+	line-height: 16px;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #F2B119;
+	text-decoration: none;
+	margin-top: 0px;
+	margin-left: 0px;
+}
+.heading {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	line-height: 16px;
+	color: #990000;
+	padding-top: 0px;
+	padding-left: 0px;
+	font-weight: bold;
+	letter-spacing: normal;
+	text-transform: none;
+}
+body {
+	background-image: url(images/aabg.jpg);
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+}
+
+.textable {
+	margin-top: 175px;
+	margin-left: 240px;
+}
+.sidebarnav {
+	position: absolute; left: 10px; top: 380px; height: 400px; width: 160px; padding: 1em;
+}
+.date {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	line-height: 14px;
+	text-transform: uppercase;
+	color: #f2b119;
+	letter-spacing: 2px;
+	padding-bottom: 0px;
+	font-weight: bold;
+}
+.calendar {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	line-height: 14px;
+	text-transform: uppercase;
+	color: #990000;
+	letter-spacing: 2px;
+	padding-bottom: 5px;
+	font-weight: bold;
+}

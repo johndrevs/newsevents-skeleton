@@ -1,0 +1,1 @@
+#footer li {border:expression( (this===this.parentNode.childNodes[0]) ? "none" : "auto");}

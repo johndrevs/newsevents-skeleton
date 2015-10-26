@@ -1,0 +1,25 @@
+@charset "utf-8";
+/* CSS Document */
+#page-box {
+	width:95%;
+	margin:0 auto;
+}
+#content {
+
+	width:95%;
+
+}
+#union-box {
+
+	background:none;
+
+}
+#main-content {
+
+	width:100%;
+}
+#calendar{font-family: verdana,arial,helvetica,clean,sans-serif;font-size:0.9em;}
+
+#calendar_submit , #calendarheader{display:none;}#details li{display:block;}
+#main-content h3.first{font-size:2em;text-transform:uppercase}
+#submitbutton{float:right;margin:-40px 20px 0 0}

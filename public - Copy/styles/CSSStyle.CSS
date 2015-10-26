@@ -1,0 +1,786 @@
+a.nav { background-color: #6699cc;  font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;  font-size: xx-small;  color: White;  font-weight: bold;     }
+
+a.nav:hover{ background-color: #6699cc;  font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;  font-size: xx-small;  color: White; text-decoration: underline;  font-weight: bold;  }       }
+
+.DefFONT					{font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; font-weight: normal;font-size: xx-small;}
+
+
+
+
+
+
+/* ############################################################################################### */
+/* LEFT COLUMN */
+
+TD.LeftCol				{
+	padding:0px;
+	border:none;
+	background: #c6cbba;
+	color: #990000;
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+}
+
+
+
+
+/* ############################################################################################### */
+/* .LeftBLOCK	- definition for layout for all boxes */
+
+TD.LeftBLOCKHEADER		{
+	padding:5px;
+	font-weight:bold;
+	font-size:;
+	background: #990000;
+	color: #Ffffff;
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	}
+
+
+
+
+
+TABLE.CalCatNavig			 {
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+	}
+TD.CalCatNavig				{
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+	}
+TD.CalCatNavigHEAD			{
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+	}
+TABLE.CalSearchNavig		{
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	background-color: #ffffff;
+	font-size: xx-small;
+	}
+TD.CalSearchNavig			{
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+	}
+TD.CalSearchNavigHEAD		 {
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+	}
+
+TABLE.CalLocNavig			{
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+	}
+TD.CalLocNavig				{
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+	}
+TD.CalLocNavigHEAD			{
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+	font-weight: bold;
+	}
+/* ############################################################################################### */
+/* CalUserNavig - is block for users functions	 								*/
+/* =========================================================================== 	*/
+TABLE.CalUserNavig			{
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	background-color: #Ffffff;
+	font-size: xx-small;
+	}
+TD.CalUserNavig				{
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+	}
+TD.CalUserNavigHEAD			{
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+	}
+A.CalUserNavig {
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+}
+A.CalUserNavig:link  {
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+}
+A.CalUserNavig:visited		{
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+	}
+A.CalUserNavig:hover		{
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color: #c6cbba;
+	font-size: xx-small;
+	}
+/* ############################################################################################### */
+/* CalDayOver - is definition for overflow days in block of month*/
+/* =========================================================================== */
+TD.CalDayOver				{
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	background: #C6CBBA;
+	color: #990000;
+	font-size: xx-small;
+}
+A.CalDayOver {
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+}
+A.CalDayOver:link {
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+}
+A.CalDayOver:visited		{
+	color: #990000;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+}
+A.CalDayOver:hover			{
+color: #929770;
+ font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+ font-size: xx-small;
+}
+/* ############################################################################################### */
+/* CalDayToday - is definition for highlighted day of today*/
+/* =========================================================================== */
+TD.CalDayToday				{
+	background: #929770;
+	color : #ffffff;
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+}
+A.CalDayToday {
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+	}
+}
+A.CalDayToday:link{
+	color : #ffffff;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+}
+A.CalDayToday:visited		{
+	color: #ffffff;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+}
+A.CalDayToday:hover			{
+	color: #c6cbba;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+}
+/* ############################################################################################### */
+/* CalDayNavig - is definition for month block with all days of month*/
+/* =========================================================================== */
+TD.CalDayNavig				{
+	background: #ffffff;
+	color : #990000;
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+}
+TD.CalDayNavigHEADER		{
+	background: #990000;
+	color : #ffffff;
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+}
+A.CalDayNavigHEADER{
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+}
+}
+A.CalDayNavigHEADER:link
+{
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color: #ffffff;
+	font-weight: bold;
+	font-size: xx-small;
+}
+A.CalDayNavigHEADER:visited	{
+	font-weight: bold;
+	color : #ffffff;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+}
+A.CalDayNavigHEADER:hover	{
+	font-weight: bold;
+	color : #c6cbba;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+}
+A.CalDayNavig {
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+}
+A.CalDayNavig:link {
+	color : #990000;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+}
+A.CalDayNavig:visited		{
+	color: #990000;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+}
+A.CalDayNavig:hover			{
+	color: #929770;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+}
+/* Week links column */
+TD.CalDayNavigWeekCol		{
+	background: #990000;
+	color : #ffffff;
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+}
+/* ############################################################################################### */
+/* CalMonthNavig - is definition for months list navigation*/
+/* =========================================================================== */
+TABLE.CalMonthNavig			{
+	background: #ffffff;
+	color: #990000;
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+}
+TD.CalMonthNavig			{
+	color: #990000;
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	background: #ffffff;
+	font-size: xx-small;
+}
+A.CalMonthNavig {
+	color : #990000;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+}
+A.CalMonthNavig:link {
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+}
+A.CalMonthNavig:visited		{
+	color : #990000;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+} /* inherited from LeftBLOCK */
+A.CalMonthNavig:hover		{color : #929770;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+}  /*inherited from LeftBLOCK */
+/* ############################################################################################### */
+/* CalYearNavig - is definition for year list navigation*/
+/* =========================================================================== */
+TABLE.CalYearNavig			{
+	background: #ffffff;
+	color: #Ffffff;
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+}
+TD.CalYearNavig	{
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+}			
+A.CalYearNavig {
+font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color: #990000;
+	font-size: xx-small;
+}
+A.CalYearNavig:link{
+font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color: #990000;
+	font-size: xx-small;
+}
+A.CalYearNavig:visited		 {
+font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+color: #990000;
+ font-size: xx-small;
+} 
+A.CalYearNavig:hover		{
+font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+ color: #c6cbba;
+ font-size: xx-small;
+}
+
+/* ############################################################################################### */
+/* Upcoming events */
+TABLE.CalUpcomming			{font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;  font-size: xx-small; }/*  inherited from LeftBLOCK */
+TD.CalUpcomming				  {
+font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+ font-size: xx-small;
+}/*inherited from LeftBLOCK */
+TD.CalUpcommingHEADER		{font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;  font-size: xx-small; }/*  inherited from LeftBLOCK */
+A.CalUpcomming	 {font-weight:bold;  font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;  font-size: xx-small;  }
+A.CalUpcomming:link, 
+A.CalUpcomming:visited		{font-weight:bold;  font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;  font-size: xx-small;  } /* inherited from LeftBLOCK */
+A.CalUpcomming:hover		{font-weight:bold;  font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;  color: #c6cbba;  font-size: xx-small;   } /* inherited from LeftBLOCK */
+
+/* ############################################################################################### */
+/* CalViewEvent - is definition for event view table*/
+/* =========================================================================== */
+TABLE.CalViewEvent			{
+	color: #6699cc;
+	font-size:x-small;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+}
+TD.CalViewEventHEADER		{
+	background: #c6cbba;
+	color: #990000;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: xx-small;
+}
+A.CalViewEvent{
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+}
+A.CalViewEvent:link  {
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color: #990000;
+	font-size: xx-small;
+}
+A.CalViewEvent:visited		{color: #990000; border:none;  font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;  font-size: xx-small;  }
+A.CalViewEvent:hover		{
+	color: #929770;
+	border:none;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+}
+
+
+
+
+.ViewDay  					{font-style: normal; font-size: xx-small;  font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; }
+/* ############################################################################################### */
+/*	RIGHT COLUMN 
+.RightCol				{padding:0px;border:none;background:#ffffff;}
+TD.RightCol				{color:#000000;}
+A.RightCol, 
+A.RightCol:link, 
+A.RightCol:visited		{font-weight:bold;color:black;}
+A.RightCol:hover		{font-weight:bold;color:blue;}*/	
+/* ############################################################################################### */
+/*	GRAPHICAL MONTH VIEW */	
+
+TABLE.MonthBIG				{ font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;  font-size: xx-small;  }/**/
+TD.MonthBIG					{
+font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+border: 1px outset;
+ font-size: xx-small;
+}
+TD.MonthBIGHEADER			{
+	background: #6699cc;
+	color: #Ffffff;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+}
+A.MonthBIGHEADER, 
+A.MonthBIGHEADER:link, 
+A.MonthBIGHEADER:visited	{
+	color: #ffffff;
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+}
+A.MonthBIGHEADER:hover		{font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color: #c6cbba;
+	font-size: xx-small;
+}
+TD.MonthBIGDAYS				{
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif; 
+	color: #990000;
+	font-size: xx-small;
+}
+A.MonthBIGDAYS {
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color: #ffffff;
+	font-size: xx-small;
+}
+A.MonthBIGDAYS:link {
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color: #ffffff;
+	font-size: xx-small;
+}
+A.MonthBIGDAYS:visited		{
+	color: #ffffff;
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+}
+A.MonthBIGDAYS:hover		{font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color: #c6cbba;
+	font-size: xx-small;
+}
+
+TD.MonthBIGDAYSCURRENT		{
+	border:outset 1px;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+}
+A.MonthBIGDAYSCURRENT {
+	color: #990000;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+}
+A.MonthBIGDAYSCURRENT:link	{
+	color: #990000;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+} 
+A.MonthBIGDAYSCURRENT:visited	{color: #990000; font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;  font-size: xx-small; }
+A.MonthBIGDAYSCURRENT:hover		{color: #c6cbba; font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;  font-size: xx-small; }
+
+TD.MonthBIGDAYSOVER			{
+	border:outset 1px;
+	background: #C6CBBA;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+}
+A.MonthBIGDAYSOVER	{
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+}
+A.MonthBIGDAYSOVER:link {
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+}
+A.MonthBIGDAYSOVER:visited		{font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+		color: #990000;
+		font-size: xx-small;
+}
+A.MonthBIGDAYSOVER:hover		{font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+color: #c6cbba;
+ font-size: xx-small;
+}
+
+TD.MonthBIGDAYSTODAY		{
+	border:outset 1px;
+	background: #6699cc;
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+}
+
+TD.FooterLine {
+	background: #6699cc;
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+	color: #ffffff;
+	padding-bottom: 8px;
+	padding-left: 8px;
+	padding-top: 8px;
+	font-weight: bolder;
+}
+
+A.MonthBIGDAYSTODAY:link {
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+}
+A.MonthBIGDAYSTODAY:visited	{
+	color: #990000;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+	}
+A.MonthBIGDAYSTODAY:hover	{
+	color: #c6cbba;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+}
+TD.MonthBIGWeekCol			{
+	background: #6699cc;
+	color : #Ffffff;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+}
+
+
+.LoginForm
+{	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	padding: 5px;
+	border: outset solid 3px;
+		font-size: xx-small;
+}
+
+/* Setting for BODY tag 
+body
+{
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	;
+	font-size:x-small;
+	background-color: #ffffff;
+	color: black;
+}*/
+
+A, A:Link, A:visited	{
+	text-decoration:none;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+}
+A:hover					{text-decoration:underline;  font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;    
+	font-size: xx-small;
+	}
+
+
+/* ############################################################################################### */
+.MT								{
+font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+	}
+TD.MT {
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+}
+.MTTD					{
+font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	background: #ffffff;
+	font-size: xx-small;
+	}
+
+.MTH1
+{
+/*	background: 		none;
+	color:				#105040;*/
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight: 	BOLD;
+		font-size: xx-small;
+}
+
+
+a.MTH1	{
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight: 	BOLD;
+	font-size:		x-small;
+}
+a.MTH1:LINK	{
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight: 	BOLD;
+	font-size:		x-small;
+}
+a.MTH1:VISITED {
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight: 	BOLD;
+	font-size:		x-small;
+}
+a.MTH1:HOVER
+{
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight: 	BOLD;
+	font-size:		x-small;
+	color: #929770;
+}
+
+A.MTA, A.MTA:link, A.MTA:visited
+{
+	color: #990000;
+	font-size:x-small;
+	text-decoration:none;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	background-color: #ffffff;
+		font-size: xx-small;
+}
+
+A.MTA2, A.MTA2:link, A.MTA2:visited {
+	color: #990000;
+	font-size: xx-small;
+	text-decoration:none;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	background-color: #C6CBBA;
+}
+
+
+a.MTA:hover      {
+	color: #929770;
+	font-size: xx-small;
+	text-decoration:underline;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+}
+
+
+/* *********************************************************** */
+/* *********************************************************** */
+/* *********************************************************** */
+
+/* *********************************************************** */
+/* *************	Setting for forms			 			 ********** */
+/* *********************************************************** */
+
+/* Setting for Forms header */
+.FormFieldHeader
+{
+	background: #6699CC;
+	color: #ffffff;
+	font-size: xx-small;
+	font-weight: bold;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+}
+
+
+/* Setting for Forms body */
+.FormField0
+{
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color: #990000;
+	font-style: 	normal;
+	font-size:	 ;
+}
+
+
+/* Setting for Forms names */
+.FormField1
+{
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color: #990000;
+	font-style: 	normal;
+	font-weight : 	bold;
+	font-size:	;
+}
+
+
+/* Setting for Forms fields */
+.FormField2
+{
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color: #990000;
+	font-style: 	normal;
+	font-size: xx-small;
+}
+
+
+/* Setting for Forms links */
+A.FormField, A.FormField:link, A.FormField:visited, A.FormField:hover
+{
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color: #990000;
+	font-weight: normal;
+	text-decoration:underline;
+	font-size:x-small;
+}
+
+
+/* Setting for FORM Tag */
+input, select, textarea
+{
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size:		x-small;
+}
+
+
+
+
+/* *********************************************************** */
+/* *********************************************************** */
+/* *********************************************************** */
+
+
+/* *********************************************************** */
+/* *************	Setting for Left side		         ********** */
+/* *********************************************************** */
+
+
+.LeftTabs
+{
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+	background-color:  transparent;
+}
+
+.LeftTabsH1
+{	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	text-decoration: 	none;
+	font-weight:		normal;
+	font-size:			x-small;
+}
+
+A.LeftTabs, A.LeftTabs:link, A.LeftTabs:visited, A.LeftTabs:hover
+{ 
+	text-decoration:underline;
+	font-weight: 	normal;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size:		x-small;
+}
+
+
+
+/* *********************************************************** */
+/* *********************************************************** */
+/* *********************************************************** */
+
+/* *********************************************************** */
+/* *************			Setting for Right side			********** */
+/* *********************************************************** */
+
+.RightTabs
+{
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+	background: transparent;
+	
+}
+
+.RightTabsH1
+{
+	text-decoration: 	none;
+	font-weight:		bold;
+		font-size: xx-small;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+}
+
+A.RightTabs, A.RightTabs:link, A.RightTabs:visited, A.RightTabs:hover
+{ 
+	text-decoration:underline;
+	font-weight: 	bold;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+}
+
+
+/* Break line color */
+.divHR
+{
+	color: #929770;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+}
+h1 {
+	color: #6699cc;
+	font-weight: bold;
+	font-size: xx-small;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	line-height: normal;
+}
+h2  {
+	color: #990000;
+	font-weight: bold;
+	font-size: xx-small;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	line-height: normal;
+}
+h3 {
+	color: #990000;
+	font-weight: bold;
+	font-size: xx-small;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	line-height: normal;
+}
+h4    {
+	color: #990000;
+	font-weight: bold;
+	font-size: xx-small;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	line-height: normal;
+}
+h5    {
+	color: #990000;
+	font-weight: bold;
+	font-size: xx-small;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	line-height: normal;
+}
+H6 {
+	color : #6699cc;
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size : ;
+	line-height: normal;
+}
+
+
+/* =========================================================================== */
+/* CalSearchNavig - is block for search  */
+/* =========================================================================== */
+
+

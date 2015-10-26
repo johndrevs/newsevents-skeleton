@@ -1,0 +1,24 @@
+<div id="quicklinks"><div class="greybox"><form id="quicklinks_drop" action="#"><img src="images/quick_links.gif" width="82" height="12" alt="Quick Links" border="0" align="middle" />
+<select name="dest" size="1" onchange="leapto(this.form)">
+<option  value="#" selected="selected">Go directly to...</option>
+<option value="/depts/acadaff/">Academic Affairs</option>
+<option value="http://www.loyolachicagoalum.net/">Alumni Relations</option>
+<option value="http://www.loyolaramblers.com/">Athletics</option>
+<option value="/finaid/">Financial Assistance</option>
+<option value="http://www.loyolachicagoalum.net/makeagift.htm">Give to Loyola</option>
+<option value="http://www.luhs.org">Health System</option>
+<option value="/hr/">Human Resources</option>
+<option value="http://libraries.luc.edu/">Libraries</option>
+<option value="/news/media">Media Relations</option>
+<option value="/mission/">Mission and Ministry</option>
+<option value="/president/">President's Office</option>
+<option value="/news/media/">Public Affairs</option>
+<option value="/regrec/">Registration and Records</option>
+<option value="/reslife/">Residence Life</option>
+<option value="/academics/schools/jindex2.shtml">Schools and Colleges</option>
+<option value="/depts/safety">Security/Police</option>
+<option value="/depts/studaff">Student Affairs</option>
+<option value="/is/">Technology</option>
+<option value="/undergrad/">Undergraduate Admissions</option>
+</select></form>
+</div></div>

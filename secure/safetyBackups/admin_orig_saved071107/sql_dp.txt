@@ -1,0 +1,797 @@
+----------------
+forgot_process.cfm
+----------------
+SELECT CUNVMCS.USERS.email, CUNVMCS.USERS.passcode,CUNVMCS.USERS.USER_NAME
+FROM CUNVMCS.USERS
+WHERE CUNVMCS.USERS.USER_NAME='#trim(FORM.user_name)#' AND CUNVMCS.USERS.ISACTIVE=1
+----------------
+
+----------------
+validatelogin.cfm
+----------------
+SELECT CUNVMCS.USERS.USERID, CUNVMCS.USERS.FIRSTNAME, CUNVMCS.USERS.LASTNAME, CUNVMCS.USERS.USER_ADMIN
+FROM CUNVMCS.USERS
+WHERE CUNVMCS.USERS.USER_NAME='#trim(FORM.user_name)#' AND CUNVMCS.USERS.PASSCODE='#trim(FORM.passcode)#' AND CUNVMCS.USERS.ISACTIVE=1
+
+
+INSERT INTO CUNVMCS.LOGINTRACKING (LOGINTRACKING.USERID,LOGINTRACKING.LOGINDATE,LOGINTRACKING.BROWSER,LOGINTRACKING.IPADDRESS)
+VALUES (#session.USERID#,SYSDATE,'#removechars(http_user_agent, 49,1000)#','#remote_addr#')
+
+
+SELECT DISTINCT SITES.SITEID, SITES.SITE_NAME
+FROM CUNVMCS.SITES, CUNVMCS.AUTH_TBL
+<cfif get_password.USER_ADMIN eq 0>WHERE CUNVMCS.SITES.siteid=AUTH_TBL.siteid and AUTH_TBL.USERID=#get_password.userid#  and CUNVMCS.SITES.isactive=1 AND AUTH_TBL.AUTH_LEVEL=1
+</cfif>
+
+SELECT      sites.site_name, sites.siteid
+FROM         CUNVMCS.auth_tbl, CUNVMCS.sites 
+WHERE       auth_tbl.siteid = sites.siteid AND auth_tbl.userid=#session.userid#
+
+----------------
+
+----------------
+admin_dashboard.cfm
+----------------
+SELECT      sites.site_name, sites.siteid
+FROM         CUNVMCS.auth_tbl, CUNVMCS.sites 
+WHERE       auth_tbl.siteid = sites.siteid AND auth_tbl.userid=#session.userid#
+
+----------------
+dashboard.cfm
+----------------
+
+SELECT      sites.site_name, sites.siteid, SITES.uri
+FROM CUNVMCS.SITES
+WHERE     sites.isactive=1 and (sites.siteid in (#session.publish#) or  sites.siteid in (#session.post#) )
+order by site_name
+
+SELECT      messages.subject, messages.content, messages.userid, messages.date_sent, messages.messageID, users.lastname, users.firstname,users.userid
+FROM         CUNVMCS.messages, CUNVMCS.users 
+WHERE       messages.userid = users.userid and messages.isactive=1
+order by date_sent desc
+
+SELECT distinct events_tbl.eventid
+from CUNVMCS.events_tbl, CUNVMCS.events_ref
+where	0=0 and events_tbl.isactive=1 and events_ref.eventid=events_tbl.eventid and events_ref.siteid=#siteid# and events_ref.events_ref_level =2
+and to_char(pubdate, 'yyyy-mm-dd') <= to_char(SYSDATE, 'yyyy-mm-dd') and to_char(pulldate, 'yyyy-mm-dd') >= to_char(SYSDATE, 'yyyy-mm-dd')
+
+SELECT distinct news.newsid, priority
+from CUNVMCS.news, CUNVMCS.news_ref
+where	0=0 and news.isactive=1 and news_ref.newsid=news.newsid and news_ref.siteid=(#siteid#) and news_ref.news_ref_level =2 and to_char(pubdate, 'yyyy-mm-dd') <= to_char(SYSDATE, 'yyyy-mm-dd') and to_char(pulldate, 'yyyy-mm-dd') >= to_char(SYSDATE, 'yyyy-mm-dd')	
+order by priority
+----------------
+
+----------------
+locations_add_action.cfm
+----------------
+	INSERT INTO CUNVMCS.locations(isactive,location_name,address,subaddress,location_link,creator)
+VALUES('1','#form.location_name#','#form.address#','#form.subaddress#','#form.location_link#','#session.userid#' )
+----------------
+
+----------------
+locations_delete_action.cfm
+----------------
+update locations
+set isactive=0
+where locationid=#form.itemid#
+----------------
+
+----------------
+locations_list.cfm
+----------------
+select location_name,locationid
+from CUNVMCS.locations
+where locationid <>21
+and isactive=1
+----------------
+
+----------------
+locations_view.cfm
+----------------
+
+SELECT      locations.name, locations.address, locations.subaddress, locations.link, users.lastname, users.firstname
+FROM         locations, users 
+WHERE       locations.creator = users.userid and locationid=#url.locationid#
+----------------
+
+----------------
+messages_add_action.cfm
+----------------
+	INSERT INTO CUNVMCS.messages(isactive,subject,content,date_sent,userid)
+VALUES(1,'#form.subject#','#form.content#',SYSDATE,#session.userid#)
+----------------
+
+----------------
+messages_delete_action.cfm
+----------------
+update CUNVMCS.messages
+set isactive=0
+where messageid=#form.itemid#
+----------------
+
+----------------
+messages_list.cfm
+----------------
+SELECT      messages.subject, messages.content, messages.userid, messages.date_sent, messages.messageID, users.lastname, users.firstname
+FROM         CUNVMCS.messages, CUNVMCS.users 
+WHERE       messages.userid = users.userid and messages.isactive=1
+order by date_sent desc
+----------------
+
+----------------
+search.cfm
+----------------
+
+select news.newsid, shorttitle,DESC_CLOB,created,byline,pubdate,pulldate, firstname, lastname,user_admin, news.userid
+from CUNVMCS.news, CUNVMCS.users
+where	0=0 AND (shorttitle like '%#form.query#%' or longtitle like '%#form.query#%' or DESC_CLOB like '%#form.query#%' or byline like '%#form.query#%' or content like '%#form.query#%') and news.isactive=1 and news.userid=users.userid	
+and  news.newsid IN (select news_ref.newsid from CUNVMCS.news_ref where news_ref.siteid in (#session.publish#) or news_ref.userid =#session.userid#)
+
+SELECT startdate, pubdate, shortdesc, eventID,firstname,lastname,user_admin,events_tbl.userid
+FROM CUNVMCS.events_tbl, CUNVMCS.users
+where	0=0 AND events_tbl.isactive=1 AND (shortdesc like '%#form.query#%' or longdesc like '%#form.query#%' or INFO_CLOB like '%#form.query#%' or specificlocation like '%#form.query#%') and events_tbl.userid=users.userid
+and  events_tbl.eventid IN (select events_ref.eventid from CUNVMCS.events_ref where events_ref.siteid in (#session.publish#) or events_ref.userid =#session.userid#)
+----------------
+
+----------------
+sites_add_action.cfm
+----------------
+INSERT INTO CUNVMCS.sites(isactive,site_name,uri,maxrows,creator,description)
+VALUES(1,'#form.site_name#','#form.url#',#form.maxrows#,#session.userid#,1)
+----------------
+
+----------------
+aites_delete_action.cfm
+----------------
+update sites
+set isactive=0
+where siteid=#form.itemid#
+----------------
+
+----------------
+sites_list.cfm
+----------------
+select site_name,siteid
+from CUNVMCS.sites
+where isactive=1
+----------------
+
+----------------
+sites_rework.cfm
+----------------
+select siteid, site_name, uri, description, isactive,maxrows
+from CUNVMCS.sites
+where	sites.siteid=#url.itemid#
+----------------
+
+----------------
+sites_rework_action.cfm
+----------------
+UPDATE     CUNVMCS.sites
+SET      site_name='#form.site_name#', uri='#form.uri#', description=1, maxrows='#form.maxrows#'
+where siteid=#form.siteid#
+----------------
+
+----------------
+sites_view.cfm
+----------------
+SELECT      sites.site_name, sites.uri, sites.description, sites.creator, users.firstname, users.lastname
+FROM         CUNVMCS.sites,CUNVMCS.users 
+WHERE       sites.creator = users.userid
+and siteid=#url.siteid#
+
+///repeated///	
+SELECT      distinct AUTH_TBL.userid, AUTH_TBL.siteid, AUTH_TBL.auth_level, users.lastname, users.firstname
+	FROM         CUNVMCS.AUTH_TBL, CUNVMCS.users 
+	WHERE       AUTH_TBL.userid = users.userid and AUTH_TBL.siteid=#siteid#
+	order by auth_level
+----------------
+
+----------------	
+users_add_action2.cfm
+----------------
+INSERT INTO CUNVMCS.users(user_name,user_admin,createtime,lastname,firstname,email,passcode)
+VALUES('#form.user_name#','#form.user_admin#',SYSDATE,'#form.lastname#','#form.firstname#','#form.email#','#form.passcode#')
+
+SELECT MAX(userID) as MaxID
+	FROM CUNVMCS.users
+	
+///repeated///	
+INSERT INTO CUNVMCS.AUTH_TBL(userid, siteID,auth_level)
+VALUES(#getid.maxID#, #n#,1)
+
+///repeated///
+INSERT INTO CUNVMCS.AUTH_TBL(userid, siteID,auth_level)
+VALUES(#getid.maxID#, #n#,2)
+----------------
+
+----------------
+users_add_action3.cfm
+----------------
+SELECT CUNVMCS.USERS.email, CUNVMCS.USERS.passcode,CUNVMCS.USERS.USER_NAME
+FROM CUNVMCS.USERS
+WHERE CUNVMCS.USERS.USER_NAME='#trim(FORM.user_name)#'
+----------------
+
+----------------
+users_authorization.cfm
+----------------
+select site_name,siteid
+from CUNVMCS.sites
+where isactive=1
+
+select firstname,lastname,email,createtime,user_admin,userid
+from CUNVMCS.users
+where 0=0 and userid=#url.itemid#
+
+SELECT SITEID
+FROM CUNVMCS.AUTH_TBL
+WHERE AUTH_TBL.USERID=#url.itemid#  AND AUTH_TBL.AUTH_LEVEL=2
+
+SELECT SITEID
+FROM CUNVMCS.AUTH_TBL
+WHERE AUTH_TBL.USERID=#url.itemid#  AND AUTH_TBL.AUTH_LEVEL=1
+----------------
+
+----------------
+users_authorization_action.cfm
+----------------
+INSERT INTO CUNVMCS.AUTH_TBL(userid, siteID,auth_level)
+VALUES(#form.userid#, #n#,1)
+
+INSERT INTO CUNVMCS.AUTH_TBL(userid, siteID,auth_level)
+VALUES(#form.userid#, #n#,2)
+----------------
+
+----------------
+users_delete_action.cfm
+----------------
+update CUNVMCS.users
+set isactive=0
+where userid=#form.itemid#
+----------------
+
+----------------
+users_list.cfm
+----------------
+select firstname,lastname,email,createtime,user_admin,userid
+from CUNVMCS.users
+where 0=0 and userid <> 85
+----------------
+
+----------------
+users_rework.cfm
+----------------
+select user_name,user_admin,lastname,firstname,email,userid,passcode
+from CUNVMCS.users
+where	users.userid=#url.itemid#
+----------------
+
+----------------
+users_rework_action.cfm
+----------------
+
+update     CUNVMCS.users
+SET       user_name='#form.user_name#', lastname='#form.lastname#', firstname='#form.firstname#', email='#form.email#', user_admin=#form.user_admin#, passcode='#form.passcode#'
+where userid=#form.userid#
+----------------
+
+----------------
+users_view.cfm
+----------------
+SELECT      users.lastname, logintracking.logindate, users.firstname,email
+FROM         CUNVMCS.users, CUNVMCS.logintracking 
+WHERE       users.userid = logintracking.userid and users.userid=#url.userid#
+order by logindate desc
+----------------
+
+----------------
+events_add.cfm
+----------------
+SELECT SITES.SITE_NAME, SITES.SITEID
+FROM CUNVMCS.SITES
+WHERE sites.isactive =1 and sites.siteid IN (#session.publish#)
+
+SELECT SITES.SITE_NAME, SITES.SITEID
+FROM CUNVMCS.SITES
+WHERE  sites.isactive =1 and sites.siteid IN (#session.post#)
+
+SELECT title,audienceid
+from CUNVMCS.audiences
+
+SELECT location_name,locationid
+from CUNVMCS.locations
+where locationid<>3 and isactive=1
+----------------
+
+----------------
+events_add_action.cfm
+----------------
+INSERT INTO CUNVMCS.events_tbl(lastmod,isactive,PUBDATE,PULLDATE,STARTDATE,<cfif form.enddate neq 'NULL'>ENDDATE,</cfif>SHORTDESC,LONGDESC,EVENTS_LINK,ISPUBLIC,RSVP,RSVP_PUBLIC,EVENTS_COST,INFO_CLOB,userid,locationid,specificlocation,contact,sponsor,created,status,recurring_status,creator)
+VALUES(SYSDATE,1,
+to_date ('#dateformat(form.pubdate, "yyyy/mm/dd")##timeformat(form.pubdate, "hh:mm:00")#', 'yyyy/mm/dd hh24:mi:ss'),
+to_date ('#dateformat(form.pulldate, "yyyy/mm/dd")##timeformat(form.pulldate, "hh:mm:00")#', 'yyyy/mm/dd hh24:mi:ss'),
+to_date ('#dateformat(form.startdate, "yyyy/mm/dd")##timeformat(form.startdate, "hh:mm:00")#', 'yyyy/mm/dd hh24:mi:ss'),
+<cfif form.enddate neq 'NULL'>to_date ('#dateformat(form.enddate, "yyyy/mm/dd")##timeformat(form.enddate, "hh:mm:00")#', 'yyyy/mm/dd hh24:mi:ss'),</cfif>
+'#form.shortdesc#', '#form.longdesc#','#form.events_link#',#form.ispublic#, #form.rsvp#, #form.rsvpp#, '#form.events_cost#', '#removechars(form.information, 1, 255)#',#form.userid#,#form.locationid#,'#form.specificlocation#','#form.contact#','#form.sponsor#',SYSDATE,1,1,#form.userid#)
+
+SELECT MAX(eventID) as MaxID
+	FROM CUNVMCS.events_tbl
+	
+	
+INSERT INTO CUNVMCS.events_ref(eventID, siteID, actiondate,EVENTS_REF_level,userid)
+VALUES(#getid.maxID#, #n#, SYSDATE,1,#form.userid#)
+
+INSERT INTO CUNVMCS.events_ref(eventID, siteID, actiondate,EVENTS_REF_level,userid)
+VALUES(#getid.maxID#, #n#, SYSDATE,2,#form.userid#)
+
+INSERT INTO CUNVMCS.events_audref(eventID, audienceID, actiondate,userid)
+VALUES(#getid.maxID#, #n#, SYSDATE,#form.userid#)
+----------------
+
+----------------
+events_approve.cfm
+----------------
+SELECT      users.lastname, users.firstname, users.user_admin,events_tbl.startdate, sites.site_name, events_tbl.pubdate, events_tbl.pulldate, events_tbl.eventid, events_tbl.shortdesc, events_tbl.userid, event_refid
+FROM         CUNVMCS.events_tbl, CUNVMCS.events_ref, CUNVMCS.sites, CUNVMCS.users 
+WHERE       events_tbl.eventid = events_ref.eventid AND events_ref.siteid = sites.siteid AND events_ref.userid = users.userid and events_ref.events_ref_level=1 and sites.isactive=1	
+<cfif site is 1>and (pubdate <= #now()# and pulldate >= #now()#)
+<cfelseif site is 2>and (pubdate >= #now()# or pulldate <= #now()#)
+</cfif>
+<cfif session.administrator eq 0>and  events_ref.siteid IN (#session.publish#)
+</cfif>
+order by #variables.sortby#
+----------------
+
+----------------
+events_delete_action.cfm
+----------------
+update events
+set isactive=0
+where eventid=#form.eventid#
+----------------
+
+----------------
+events_list.cfm
+----------------
+select events_tbl.eventid, shortdesc,created,pubdate,pulldate, firstname, lastname,user_admin, events_tbl.userid,startdate,enddate
+from CUNVMCS.events_tbl, CUNVMCS.users
+where	0=0 AND #variables.where#='#variables.crit#' and events_tbl.isactive=1 and events_tbl.userid=users.userid	
+
+<cfif site is 1>and to_char(pubdate, 'yyyy-mm-dd') <= to_char(SYSDATE, 'yyyy-mm-dd') and to_char(pulldate, 'yyyy-mm-dd') >= to_char(SYSDATE, 'yyyy-mm-dd')
+<cfelseif site is 2> and to_char(pubdate, 'yyyy-mm-dd') >= to_char(SYSDATE, 'yyyy-mm-dd') and to_char(pulldate, 'yyyy-mm-dd') <= to_char(SYSDATE, 'yyyy-mm-dd')
+</cfif>
+
+and  events_tbl.eventid IN (select events_ref.eventid from CUNVMCS.events_ref where events_ref.siteid in (#session.publish#) or events_ref.userid =#session.userid#)
+order by #variables.sort#
+----------------
+
+----------------
+events_placement.cfm
+----------------
+SELECT      events_ref.events_ref_level, events_ref.userid, events_ref.siteid, events_ref.actiondate, events_tbl.created, events_tbl.pubdate, events_tbl.pulldate, events_tbl.shortdesc, events_tbl.longdesc, sites.site_name, users.user_name, users.lastname, users.firstname, events_tbl.eventid, events_ref.event_refid
+FROM         CUNVMCS.events_tbl, CUNVMCS.events_ref, CUNVMCS.users, CUNVMCS.sites 
+WHERE       events_ref.userid = users.userid AND events_ref.siteid = sites.siteid AND events_ref.eventid = events_tbl.eventid AND events_tbl.eventid=#url.eventid# and events_ref_level <>4
+order by level desc
+
+SELECT distinct SITES.SITEID, SITES.site_name
+FROM CUNVMCS.SITES
+WHERE sites.isactive =1 and SITEID in (#session.publish#) and SITES.siteid  NOT IN(#variables.used#)
+
+SELECT distinct SITES.SITEID, SITES.site_name
+FROM CUNVMCS.SITES
+WHERE sites.isactive =1 and SITEID in (#session.post#) and SITES.siteid  NOT IN(#variables.used#)
+----------------
+
+----------------
+events_placement_action2.cfm
+----------------
+INSERT INTO CUNVMCS.events_ref(eventID, siteID, actionDate,events_ref_level,userid)
+VALUES(#form.eventid#, #n#, SYSDATE,1,#session.userid#)
+
+INSERT INTO CUNVMCS.events_ref(eventID, siteID, actionDate,events_ref_level,userid)
+VALUES(#form.eventid#, #n#, SYSDATE,2,#session.userid#)
+----------------
+
+----------------
+events_release.cfm
+----------------
+update     CUNVMCS.events_ref
+SET            events_ref_level=1
+where eventid=#form.eventid#
+----------------
+
+----------------
+events_rework.cfm
+----------------
+select eventid, shortdesc,longdesc,pubdate,pulldate,startdate,enddate,events_cost,events_link,ispublic,rsvp,rsvp_public,INFO_CLOB,userid,locationid,sponsor,contact,events_link,specificlocation
+from CUNVMCS.events_tbl
+where	events_tbl.eventid=#url.eventid#
+
+SELECT      audienceid
+FROM         CUNVMCS.events_audref 
+where	eventid=#url.eventid#
+
+SELECT title,audienceid
+from CUNVMCS.audiences
+
+SELECT location_name,locationid
+from CUNVMCS.locations
+where locationid<>3 and isactive=1
+----------------
+
+----------------
+events_rework_action.cfm
+----------------
+		update     CUNVMCS.events_tbl
+SET       
+shortdesc='#form.shortdesc#', 
+longdesc='#form.longdesc#', 
+INFO_CLOB='#form.information#', 
+events_link='#form.events_link#',
+locationid='#form.locationid#',
+sponsor='#form.sponsor#',
+contact='#form.contact#',
+events_cost='#form.events_cost#',
+ispublic='#form.ispublic#', 
+rsvp='#form.rsvp#',
+rsvp_public='#form.rsvpp#',
+pubdate=to_date ('#dateformat(form.pubdate, "yyyy/mm/dd")##timeformat(form.pubdate, "hh:mm:00")#', 'yyyy/mm/dd hh24:mi:ss'),
+pulldate=to_date ('#dateformat(form.pulldate, "yyyy/mm/dd")##timeformat(form.pulldate, "hh:mm:00")#', 'yyyy/mm/dd hh24:mi:ss'),
+startdate=to_date ('#dateformat(form.startdate, "yyyy/mm/dd")##timeformat(form.startdate, "hh:mm:00")#', 'yyyy/mm/dd hh24:mi:ss'),
+enddate=to_date ('#dateformat(form.enddate, "yyyy/mm/dd")##timeformat(form.enddate, "hh:mm:00")#', 'yyyy/mm/dd hh24:mi:ss'),
+lastmod=SYSDATE<!---   --->
+where eventid=#form.eventid#
+----------------
+
+----------------
+events_rework_check.cfm
+----------------
+SELECT      events_ref_level,site_name,userid
+FROM         CUNVMCS.events_ref,CUNVMCS.sites 
+where eventid=#url.eventid# and events_ref_level=2 and events_ref.siteid=sites.siteid
+----------------
+
+----------------
+events_site.cfm
+----------------
+SELECT      sites.site_name, sites.siteid
+FROM        CUNVMCS.sites 
+WHERE      sites.siteid in (#session.publish#) or  sites.siteid in (#session.post#)
+----------------
+
+----------------
+events_site_view.cfm
+----------------
+SELECT      site_name, uri, description, maxrows
+FROM         CUNVMCS.sites 
+where siteid=#url.siteid#
+
+select events_tbl.eventid,shortdesc
+from CUNVMCS.events_tbl, CUNVMCS.events_ref
+		where	0=0 and events_tbl.isactive=1 and events_ref.eventid=events_tbl.eventid and events_ref.siteid=#siteid# and events_ref.events_ref_level =2
+	and to_char(pubdate, 'yyyy-mm-dd') <= to_char(SYSDATE, 'yyyy-mm-dd') and to_char(pulldate, 'yyyy-mm-dd') >= to_char(SYSDATE, 'yyyy-mm-dd')
+	
+select events_tbl.eventid
+from CUNVMCS.events_tbl, CUNVMCS.events_ref
+		where	0=0 and events_tbl.isactive=1 and events_ref.eventid=events_tbl.eventid and events_ref.siteid=#siteid# and events_ref.events_ref_level =2
+	and to_char(pubdate, 'yyyy-mm-dd') <= to_char(SYSDATE, 'yyyy-mm-dd') and to_char(pulldate, 'yyyy-mm-dd') >= to_char(SYSDATE, 'yyyy-mm-dd')
+----------------
+
+----------------
+events_view.cfm
+----------------
+SELECT 
+  LOC.LOCATION_NAME, EVE.EVENTID, EVE.USERID, 
+  EVE.CREATED, EVE.PUBDATE, EVE.STARTDATE, 
+  EVE.ENDDATE, EVE.PULLDATE, EVE.SHORTDESC, 
+  EVE.LONGDESC, EVE.INFO_CLOB, EVE.EVENTS_LINK, 
+  EVE.LOCATIONID, EVE.SPECIFICLOCATION, EVE.SPONSOR, 
+  EVE.CONTACT, EVE.CREATOR, EVE.RSVP_PUBLIC, 
+  EVE.RSVP, EVE.EVENTS_COST, EVE.ISPUBLIC
+FROM 
+  CUNVMCS.LOCATIONS LOC, 
+  CUNVMCS.EVENTS_TBL EVE
+WHERE 
+( LOC.LOCATIONID=EVE.LOCATIONID and
+
+EVE.eventid=#url.eventid#)  or (EVE.LOCATIONID=0 and
+
+EVE.eventid=#url.eventid#)
+----------------
+
+----------------
+news_add.cfm
+----------------
+		SELECT SITES.SITE_NAME, SITES.SITEID
+		FROM CUNVMCS.SITES
+		WHERE sites.isactive =1 and sites.siteid IN (#session.publish#)
+		
+	SELECT SITES.SITE_NAME, SITES.SITEID
+		FROM CUNVMCS.SITES
+		WHERE  sites.isactive =1 and sites.siteid IN (#session.post#)
+----------------
+
+----------------
+news_add_action.cfm
+----------------
+INSERT INTO CUNVMCS.news(lastmod,isactive,ispublic,created,pubdate,pulldate,shorttitle, longtitle, DESC_CLOB,byline,bylinetitle, dateline, content2,content,userid)
+				VALUES(SYSDATE,1,1,SYSDATE,to_date ('#dateformat(form.pubdate, "yyyy/mm/dd")##timeformat(form.pubdate, "hh:mm:00")#', 'yyyy/mm/dd hh24:mi:ss'),to_date ('#dateformat(form.pulldate, "yyyy/mm/dd")##timeformat(form.pulldate, "hh:mm:00")#', 'yyyy/mm/dd hh24:mi:ss'),'#form.shorttitle#', '#form.longtitle#', '#form.description#','#form.byline#','#form.bylinetitle#', '#form.dateline#', '#form.content#','1',#session.userid#)
+
+SELECT MAX(newsID) as MaxID
+			FROM CUNVMCS.news
+			
+INSERT INTO CUNVMCS.news_ref(newsID, siteID, actionDate,news_ref_level,userid)
+					VALUES(#getid.maxID#, #n#, SYSDATE,1,#session.userid#)
+					
+INSERT INTO CUNVMCS.news_ref(newsID, siteID, actionDate,news_ref_level,userid)
+					VALUES(#getid.maxID#, #n#, SYSDATE,2,#session.userid#)
+----------------
+
+----------------				
+news_approve.cfm
+----------------
+SELECT      users.lastname, users.firstname, users.user_admin, sites.site_name, news.pubdate, news.pulldate, news.newsid, news.shorttitle, news.userid, news_refid
+		FROM         CUNVMCS.news, CUNVMCS.news_ref, CUNVMCS.sites, CUNVMCS.users 
+		WHERE       news.newsid = news_ref.newsid AND news_ref.siteid = sites.siteid AND news_ref.userid = users.userid and news_ref.news_ref_level=1 and sites.isactive=1 and news.isactive=1			
+		<cfif site is 1>and to_char(pubdate, 'yyyy-mm-dd') <= to_char(SYSDATE, 'yyyy-mm-dd') and to_char(pulldate, 'yyyy-mm-dd') >= to_char(SYSDATE, 'yyyy-mm-dd')		
+		<cfelseif site is 2>and to_char(pubdate, 'yyyy-mm-dd') >= to_char(SYSDATE, 'yyyy-mm-dd') and to_char(pulldate, 'yyyy-mm-dd') <= to_char(SYSDATE, 'yyyy-mm-dd')
+		</cfif>
+		<cfif session.administrator eq 0>and  news_ref.siteid IN (#session.publish#)
+		</cfif>
+		order by #variables.sort#
+----------------
+
+----------------	
+news_delete_action.cfm
+----------------
+update CUNVMCS.news
+set isactive=0
+where newsid=#url.newsid#
+----------------
+
+----------------
+news_list.cfm
+----------------
+select news.newsid, shorttitle,DESC_CLOB,created,byline,pubdate,pulldate, firstname, lastname,user_admin, news.userid
+				from CUNVMCS.news, CUNVMCS.users
+				where	0=0 AND #variables.where#='#variables.crit#' and news.isactive=1 and news.userid=users.userid			
+		<cfif site is 1>and to_char(pubdate, 'yyyy-mm-dd') <= to_char(SYSDATE, 'yyyy-mm-dd') and to_char(pulldate, 'yyyy-mm-dd') >= to_char(SYSDATE, 'yyyy-mm-dd')		
+		<cfelseif site is 2>and to_char(pubdate, 'yyyy-mm-dd') >= to_char(SYSDATE, 'yyyy-mm-dd') and to_char(pulldate, 'yyyy-mm-dd') <= to_char(SYSDATE, 'yyyy-mm-dd')
+		</cfif>
+		and  news.newsid IN (select news_ref.newsid from CUNVMCS.news_ref where news_ref.siteid in (#session.publish#) or news_ref.userid =#session.userid#)
+				order by #variables.sortby#
+----------------
+
+----------------			
+news_placement.cfm
+----------------
+SELECT      news_ref.userid, news_ref.siteid, news_ref.actiondate, news_ref.news_ref_level, news.created, news.pubdate, news.pulldate, news.shorttitle, news.longtitle, sites.site_name, users.user_name, users.lastname, users.firstname, news.newsid, news_ref.news_refid
+FROM         CUNVMCS.news, CUNVMCS.news_ref, CUNVMCS.users, CUNVMCS.sites 
+WHERE       news_ref.userid = users.userid AND news_ref.siteid = sites.siteid AND news_ref.newsid = news.newsid AND news.newsid=#url.newsid# and news_ref_level <>4
+order by news_ref_level desc
+
+SELECT distinct SITES.SITEID, SITES.SITE_NAME
+FROM CUNVMCS.SITES
+WHERE sites.isactive =1 and SITEID in (#session.publish#) and SITES.siteid  NOT IN(#variables.used#)
+
+SELECT distinct SITES.SITEID, SITES.SITE_NAME
+FROM CUNVMCS.SITES
+WHERE sites.isactive =1 and SITEID in (#session.post#) and SITES.siteid  NOT IN(#variables.used#)
+----------------
+
+----------------
+news_placement_action.cfm
+----------------
+///repeated///
+INSERT INTO CUNVMCS.news_ref(newsID, siteID, actionDate,news_ref_level,userid)
+					VALUES(#form.newsid#, #n#, SYSDATE,1,#session.userid#)
+
+///repeated///			
+INSERT INTO CUNVMCS.news_ref(newsID, siteID, actionDate,news_ref_level,userid)
+					VALUES(#form.newsid#, #n#, SYSDATE,2,#session.userid#)
+----------------
+
+----------------				
+news_priority_update.cfm
+----------------
+update     CUNVMCS.news_ref
+SET      priority=#variables.previous#
+
+update     CUNVMCS.news_ref
+SET      priority=#variables.newpriority#
+where newsid=#url.newsid# and siteid=#url.siteid#
+
+update     CUNVMCS.news_ref
+SET      priority=#variables.previous#
+where newsid=#url.followingnewsid# and siteid=#url.siteid#
+
+update     CUNVMCS.news_ref
+SET      priority=#variables.newpriority#
+where newsid=#url.newsid# and siteid=#url.siteid#
+----------------
+
+----------------
+news_publish.cfm
+----------------
+update     CUNVMCS.news_ref
+SET       news_ref_level=2
+where news_refid=#form.news_refid#
+----------------
+
+----------------
+news_rework.cfm
+----------------
+select news.newsid, shorttitle,longtitle,desc_clob,content2,byline,bylinetitle, dateline,pubdate,pulldate,userid
+from CUNVMCS.news
+where	news.newsid=#url.newsid#
+----------------
+
+----------------
+news_rework_action.cfm
+----------------
+update     CUNVMCS.news
+SET       shorttitle='#form.shorttitle#', longtitle='#form.longtitle#', DESC_CLOB='#form.description#', byline='#form.byline#',bylinetitle='#form.bylinetitle#', dateline='#form.dateline#',content2='#form.content#',pubdate=to_date ('#dateformat(form.pubdate, "yyyy/mm/dd")##timeformat(form.pubdate, "hh:mm:00")#', 'yyyy/mm/dd hh24:mi:ss'), pulldate=to_date ('#dateformat(form.pulldate, "yyyy/mm/dd")##timeformat(form.pulldate, "hh:mm:00")#', 'yyyy/mm/dd hh24:mi:ss'),lastmod=SYSDATE
+where newsid=#form.newsid#
+----------------
+
+----------------
+news_rework_check.cfm
+----------------
+SELECT      level,site_name
+FROM         CUNVMCS.news_ref,CUNVMCS.sites 
+where newsid=#url.newsid# and news_ref_level=2 and news_ref.siteid=sites.siteid
+----------------
+
+----------------
+news_site.cfm
+----------------
+SELECT      distinct sites.siteid,sites.site_name
+FROM         CUNVMCS.sites 
+where siteid in (#session.publish#)and isactive=1
+----------------
+
+----------------
+news_site_view.cfm
+----------------
+SELECT      site_name, uri, description, maxrows
+FROM         CUNVMCS.sites 
+where siteid=#form.siteid#
+
+select distinct news.newsid, shorttitle,created,byline,pubdate,pulldate,priority
+from CUNVMCS.news, CUNVMCS.news_ref
+where	0=0 and news.isactive=1 and news_ref.newsid=news.newsid and news_ref.siteid=(#form.siteid#) and news_ref.news_ref_level =2 and to_char(pubdate, 'yyyy-mm-dd') <= to_char(SYSDATE, 'yyyy-mm-dd') and to_char(pulldate, 'yyyy-mm-dd') >= to_char(SYSDATE, 'yyyy-mm-dd')	
+order by priority
+
+select news.newsid
+from CUNVMCS.news, CUNVMCS.news_ref
+		where	0=0 and news.isactive=1 and news_ref.newsid=news.newsid and news_ref.siteid=(#form.siteid#) and news_ref.news_ref_level =2
+	and to_char(pubdate, 'yyyy-mm-dd') <= to_char(SYSDATE, 'yyyy-mm-dd') and to_char(pulldate, 'yyyy-mm-dd') >= to_char(SYSDATE, 'yyyy-mm-dd')
+----------------
+
+----------------
+news_unpublishall.cfm
+----------------
+		update     CUNVMCS.news_ref
+SET            news_ref_level=1
+where newsid=#form.newsid#
+----------------
+
+----------------
+news_view.cfm
+----------------
+select content2, pubdate, pulldate,lastmod, shorttitle, bylinetitle,dateline, news.newsid, longtitle,created,byline,users.firstname,users.lastname,users.userid,users.user_admin,DESC_CLOB
+from CUNVMCS.news,CUNVMCS.users
+where news.newsID=#url.newsid# and news.userid=users.userid
+----------------
+
+----------------
+calendar.cfm
+----------------
+SELECT site_name
+FROM CUNVMCS.sites
+where siteid=#url.siteid#
+
+SELECT title
+FROM CUNVMCS.audiences
+where audienceid=#url.audience#
+----------------
+
+----------------
+calendar_list.cfm
+----------------
+SELECT events_tbl.eventid,shortdesc,startdate,enddate,INFO_CLOB
+from CUNVMCS.events_tbl, CUNVMCS.events_ref
+where	0=0 and events_tbl.isactive=1 and events_ref.eventid=events_tbl.eventid <cfif url.siteid is not 0>and events_ref.siteid in (#url.siteid#)</cfif> and events_ref.events_ref_level =2 and to_char(pubdate, 'yyyy-mm-dd') <= to_char(SYSDATE, 'yyyy-mm-dd') and to_char(pulldate, 'yyyy-mm-dd') >= to_char(SYSDATE, 'yyyy-mm-dd') AND ((to_char(startdate, 'yyyy-mm-dd') <= '#dateformat(daterangebeg,"yyyy-mm-dd")#' and to_char(enddate, 'yyyy-mm-dd') >= '#dateformat(daterangeend,"yyyy-mm-dd")#') OR (to_char(startdate, 'yyyy-mm-dd') = '#dateformat(daterangebeg,"yyyy-mm-dd")#' and enddate is NULL))
+----------------
+
+----------------
+calendar_month.cfm
+----------------
+///looped 30 times/////
+SELECT distinct events_tbl.eventID, shortdesc,  startdate
+FROM CUNVMCS.events_tbl,  CUNVMCS.events_audref
+WHERE ((to_char(startdate, 'yyyy-mm-dd') <= '#dateformat(currentdate,"yyyy-mm-dd")#' and to_char(enddate, 'yyyy-mm-dd') >= '#dateformat(currentdate,"yyyy-mm-dd")#') OR (to_char(startdate, 'yyyy-mm-dd') = '#dateformat(currentdate,"yyyy-mm-dd")#' and enddate is NULL))
+	
+	<cfif url.audience is not 0>and events_audref.audienceid=#url.audience#</cfif>
+	
+AND events_audref.eventid=events_tbl.eventid and to_char(pubdate, 'yyyy-mm-dd') <= to_char(SYSDATE, 'yyyy-mm-dd') and to_char(pulldate, 'yyyy-mm-dd') >= to_char(SYSDATE, 'yyyy-mm-dd') and  events_tbl.eventid IN (select events_ref.eventid from CUNVMCS.events_ref where 0=0
+					
+	<cfif url.siteid is not 0>and events_ref.siteid in (#url.siteid#)</cfif>
+	
+and events_ref.events_ref_level =2)
+order by events_tbl.startdate
+----------------
+
+----------------
+calendar_week.cfm
+----------------
+///looped 7 times/////
+SELECT distinct events_tbl.eventID, shortdesc,  startdate
+FROM CUNVMCS.events_tbl,  CUNVMCS.events_audref
+WHERE ((to_char(startdate, 'yyyy-mm-dd') <= '#dateformat(currentdate,"yyyy-mm-dd")#' and to_char(enddate, 'yyyy-mm-dd') >= '#dateformat(currentdate,"yyyy-mm-dd")#') OR (to_char(startdate, 'yyyy-mm-dd') = '#dateformat(currentdate,"yyyy-mm-dd")#' and enddate is NULL))
+	
+	<cfif url.audience is not 0>and events_audref.audienceid=#url.audience#</cfif>
+	
+AND events_audref.eventid=events_tbl.eventid and to_char(pubdate, 'yyyy-mm-dd') <= to_char(SYSDATE, 'yyyy-mm-dd') and to_char(pulldate, 'yyyy-mm-dd') >= to_char(SYSDATE, 'yyyy-mm-dd') and  events_tbl.eventid IN (select events_ref.eventid from CUNVMCS.events_ref where 0=0
+					
+	<cfif url.siteid is not 0>and events_ref.siteid in (#url.siteid#)</cfif>
+	
+and events_ref.events_ref_level =2)
+order by events_tbl.startdate
+----------------
+
+----------------
+news_content.cfm
+----------------
+select content2, pubdate, pulldate, shorttitle, bylinetitle,dateline, news.newsid, longtitle,DESC_CLOB,created,byline,news_ref.userid
+from CUNVMCS.news,CUNVMCS.news_ref,CUNVMCS.AUTH_TBL
+where news_ref.siteid=AUTH_TBL.siteid AND news.newsid=news_ref.newsid AND news.newsID=#url.newsid#
+----------------
+
+----------------
+news_headlines.cfm
+----------------
+SELECT 
+  NEWS.NEWSID, NEWS.SHORTTITLE, NEWS.LONGTITLE, 
+   NEWS_REF.PRIORITY
+FROM 
+  CUNVMCS.NEWS, 
+  CUNVMCS.NEWS_REF
+WHERE 
+(   NEWS_REF.NEWSID=NEWS.NEWSID ) and NEWS.ISACTIVE=1 AND news_ref.news_ref_level =2 and to_char(pubdate, 'yyyy-mm-dd') <= to_char(SYSDATE, 'yyyy-mm-dd') and to_char(pulldate, 'yyyy-mm-dd') >= to_char(SYSDATE, 'yyyy-mm-dd') <cfif url.siteid is not 0>and news_ref.siteid in (#url.siteid#)</cfif>
+group by NEWS.NEWSID, NEWS.SHORTTITLE, NEWS.LONGTITLE, 
+   NEWS_REF.PRIORITY
+   
+ SELECT 
+  NEWS.DESC_CLOB
+ FROM 
+  CUNVMCS.NEWS
+WHERE NEWS.NEWSID=#getnews.newsid#
+----------------
+
+----------------
+syndicate_news.cfm
+----------------
+SELECT      site_name, uri, description, maxrows
+FROM         CUNVMCS.sites 
+where siteid =#n#
+
+select distinct news.newsid, shorttitle,created,byline,pubdate,pulldate,priority
+from CUNVMCS.news, CUNVMCS.news_ref
+where	0=0 and news.isactive=1 and news_ref.newsid=news.newsid and news_ref.siteid=(#n#) and news_ref.news_ref_level =2 and to_char(pubdate, 'yyyy-mm-dd') <= to_char(SYSDATE, 'yyyy-mm-dd') and to_char(pulldate, 'yyyy-mm-dd') >= to_char(SYSDATE, 'yyyy-mm-dd')	
+order by priority
+----------------
+
+----------------
+syndicate_events.cfm
+----------------
+SELECT      site_name, uri, description, maxrows
+FROM         CUNVMCS.sites 
+where siteid =#n#
+
+select distinct events_tbl.eventid, shortdesc,pubdate,pulldate,startdate
+from CUNVMCS.events_tbl, CUNVMCS.events_ref
+		where	0=0 and events_tbl.isactive=1 and events_ref.eventid=events_tbl.eventid and events_ref.siteid=#n# and events_ref.events_ref_level =2
+	and to_char(pubdate, 'yyyy-mm-dd') <= to_char(SYSDATE, 'yyyy-mm-dd') and to_char(pulldate, 'yyyy-mm-dd') >= to_char(SYSDATE, 'yyyy-mm-dd')
+

@@ -1,0 +1,71 @@
+/* Week Day Title - TD */
+.calWTitle {
+	font-family: Tahoma, Verdana, sans-serif;
+	font-size: 10px;
+	background: #808080;
+	text-align: center;
+	color: #FFFFFF;
+	font-weight: bold;
+	height: 20px;
+	width: 20px;
+}
+/* Selected Date - TD */
+.calDayCurrent {
+	background: #FFC0C0;
+	width: 20px;
+}
+/* Sat. and Sun. - TD */
+.calDayWeekend {
+	background: #99CCFF;
+	width: 20px;
+}
+/* Sat. and Sun. - TD */
+.calDayHoliday {
+	background: #a0ffa0;
+	width: 20px;
+}
+/* Not Sat. and Sun. - TD */
+.calDayWorking {
+	background: #FFFFFF;
+	width: 20px;
+}
+/* Days of current month - A */
+.calThisMonth {
+	font-family: Tahoma, Verdana, sans-serif;
+	font-size: 12px;
+	color: #000000;
+}
+/* Days of other month - A */
+.calOtherMonth {
+	font-family: Tahoma, Verdana, sans-serif;
+	font-size: 12px;
+	color: #808080;
+}
+/* Days not alloved by limits - SPAN */
+.calForbDate {
+	font-family: Tahoma, Verdana, sans-serif;
+	font-size: 12px;
+	color: #000000;
+}
+/* Year select box - SELECT */
+.calYearselector {
+	width:100%;
+}
+/* Month select box - SELECT */
+.calMonthselector {
+	width:100%;
+}
+/* Hours, minutes & seconds select box - SELECT */
+.calTimeselector{
+	width: 45px;
+}
+/* Time navigation table - TABLE */
+.calTimetable{
+	font-family: Tahoma, Verdana, sans-serif;	
+	font-size: 12px;
+}
+.calDataTitle{
+	font-family: Tahoma, Verdana, sans-serif;	
+	font-size: 12px;
+	color: #000000;
+}

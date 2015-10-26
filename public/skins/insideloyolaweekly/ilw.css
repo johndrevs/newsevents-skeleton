@@ -1,0 +1,119 @@
+#doc {padding-top:3em;}
+
+#hd {background-image: url(http://maia2.is-svr.luc.edu/newsevents/public/skins/insideloyolaweekly/ilw_hdr.gif);
+height: 75px}
+
+h1 {color: #a30046;
+font-size: 1px;}
+
+#difficulty {position:relative;
+top:-2.5em;
+font-size: .9em;
+left: 12em;
+right: 15em;
+}
+
+#difficulty a {color: #bebebe;
+text-decoration: underline;}
+
+span.date {float: right;
+position: relative;
+top: 58px;
+color: #a30046;
+font-weight: bold;
+margin-right:10px}
+
+
+
+#leads, #seconds {width:96%;
+background-color: #ffffff;}
+
+#seconds {padding:1.50em;}
+
+#leads {padding:1.25em;}
+
+#yui-main {border: .05em #cacaca solid;
+background-color: #c8c8c8;}
+
+
+
+h3 {text-transform: uppercase;
+color: #686868;
+font-size: 1.25em;
+font-weight: bold;
+margin-bottom:5px;
+}
+
+
+a {color: #a30046;
+text-decoration:none}
+
+a:link {}
+
+a:visited {}
+
+a:hover {text-decoration: underline}
+
+a:active {}
+
+dt {color: #a30046;
+font-weight: bold;}
+
+dt.prime {font-size: 1.3em;}
+
+dd.prime {font-size: 1.1em;
+font-weight: bold;}
+
+#leads ul, #leads dl {font-family:Georgia, Times, "Times New Roman", serif;}
+
+#leads dd {padding:0 0 1.5em 0}
+
+#leads li {font-size: .9em;
+margin-bottom: .5em;}
+
+#seconds, #navigation dl {font-size: .85em;}
+#navigation ul {font-size: .95em;}
+
+#seconds dt {font-weight: normal;}
+
+#seconds dd {padding: 0 0 1em 0}
+
+#seconds dl{}
+#LIM {padding: 0 2em 0 0;
+border-right: 1px #a5a5a5 solid;
+}
+
+#seconds div{width:45%;}
+
+#navigation {width:240px;
+}
+
+#navigation dl, #navigation h3, #navigation ul {}
+
+#navigation dt a {color: #000000;}
+
+#navigation ul {margin:1em 0}
+#navigation li {margin:.5em 0}
+#navigation hr {margin:.5em 0}
+
+#ft{margin:1em 0 0 0;
+background-image: url(http://www.luc.edu/supports/images/weblogo.gif);
+background-repeat: no-repeat;height:200px;
+background-position: 600px 1em;}
+
+#ft li {display: inline;font-family:Georgia, Times, "Times New Roman", serif;
+}
+
+#ft li a{padding:25px;
+background-image: url(star.gif);
+background-repeat: no-repeat;
+background-position: right;}
+
+#callout {border: .05em #939393 solid;
+background-color: #ffffff;padding:2.5em;margin:3em 1em;position:relative;bottom:-50px;}
+
+#content_text{background-color: #ffffff;padding:2em;}
+#content_text img{float:right;margin:1em;}
+#content_text p{margin: 1em 0}
+
+#links{margin-top:2em;padding:0 1.25em}

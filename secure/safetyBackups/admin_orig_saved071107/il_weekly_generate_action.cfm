@@ -1,0 +1,1 @@
+<cfinclude template="../../public/skins/insideloyolaweekly/email.cfm">

@@ -1,0 +1,297 @@
+/* Global default font family and color. */
+	
+body, a, p, td, th, ul, ol, li, dl, dt, dd, h1, h2, h3, h4, h5, h6 {
+		font-family: verdana, tahoma, arial, helvetica, sans-serif;
+		color: #333;
+}
+
+	
+
+/* HTML tags redefined. */
+
+body {
+	background-color: #DDD;
+	margin: 0;
+	padding: 0;
+}
+
+form {
+	margin: 0px;
+	padding: 0px;
+}
+
+ul  {
+	margin: 0px 0px 10px 18px;
+	padding: 0px 0px 0px 0px;
+	list-style-type: disc;
+	line-height: 15px;
+}
+
+dl {
+	margin-top: 0px;
+	margin-bottom: 7px;
+	line-height : 15px;
+}
+dt {
+	margin: 0px 0px 2px 0px;
+}
+dd {  
+	margin: 0px 0px 5px 10px;
+}
+dd.nodent {  
+	margin: 0px 0px 5px 0px;
+}
+dd.sublink {
+	margin: 0px 0px 2px 13px;
+}
+
+
+
+
+/* search form hijinx */
+.searchbox {
+	color: #8E2344;
+	background-color: #F0F0F0;
+	border: 1px solid #999;
+	height: 18px;
+	margin: 0px 5px 0px 0px;
+}
+div.searchlinks {
+	text-align: right;
+	margin: 5px 30px 0px 0px;
+}	
+
+
+/* Container table styles */
+
+table#header {
+	width: 750px;
+	background-color: #FFF;
+	border-top: 4px solid #8E2344;
+	border-right: 1px solid #999;
+	border-bottom: 1px solid #666;
+	border-left: 0;
+}
+
+table#content {
+	width: 750px;
+	background-color: #FFF;
+	border-right: 1px solid #999;
+	border-bottom: 1px solid #999;
+	border-left: 0;
+}
+
+td#column1 {
+	width: 361px;
+	border-right: 1px solid #999;	
+}
+
+
+
+td#bottomstripe {
+	border-top: 1px solid #999;
+	background-color: #8E2344;
+}
+
+/*td style so pagehead, quicklinks div & pageblurb p line up properly in IE*/
+td#lrfloat {
+	width: 750px;
+	padding: 6px 15px 15px 15px;
+	margin: 0px;
+}
+
+
+td#giving {
+	text-align: center;	
+	vertical-align: bottom;
+}
+
+td#promise {
+	text-align: center;	
+	vertical-align: top;
+}
+
+
+
+
+
+/* div boxes and spacing styles */
+
+
+#topnav {
+	/*width: 389px;*/
+	height: 10px;
+	background-color: #FFFDE8;
+	border-bottom: 1px solid #999;
+	text-align: right;
+	padding: 3px 2px 4px 0px;
+	margin: 0px;
+}
+
+
+/*div container so audience and search divs line up properly in IE*/
+div.twocol {
+    float: left;
+    text-align: left;
+	padding: 0px 15px 0px 15px;
+	/*width: 359px;*/
+	margin: 0px;
+}
+
+#audience {
+	width: 187px;
+	float: left;
+	margin: 5px 0px 0px 0px;
+	text-align: left;
+}
+
+#search {
+	max-width: 172px;
+	float: left;
+	margin: 10px 0px 0px 0px;
+}
+
+#directoryin {
+	background-color: #F0F0F0;
+	margin: 0px;
+	padding-left: 4px;
+	text-align: left;
+	border-bottom: 1px solid #666;
+	border-top: 1px solid #666;
+}
+
+
+
+
+#quicklinks {
+	margin: 0px;
+	float: right;
+	background-image: url(/images/stripey.gif);
+	border: 1px solid #FDBB57;
+}
+
+#quicklinks div.greybox {
+	background-color: #F0F0F0;
+	margin: 0px 3px 0px 3px;
+	padding: 3px 7px 3px 7px;
+}
+
+#quicklinks_drop {
+	font-size: 70%;
+	margin: 0px;
+	padding: 0px;
+}
+
+p#pageblurb {
+	width: 510px;
+	margin: 0px;
+	padding-top: 10px;
+	clear: both;
+	font-size: 65%;
+	line-height: 98%;
+}
+
+#footer {
+	width: 750px;
+	margin: 15px 10px 0px 15px;
+	font-size: 60%;
+	line-height: 15px;
+	font-weight: normal;
+	color: #8E2344;	
+}
+
+
+/* styles for 3 columns of content */
+.column {
+	margin: 0px 20px 10px 15px;
+}
+.column_right {
+	margin: 0px 15px 10px 25px;
+}
+td.dashrule {
+	border-left : 1px dashed #CCCCCC;
+}
+	
+
+
+
+
+
+.floatleft {
+	float: left;
+}
+.vspace10 {
+	margin: 10px 0px 10px 0px;
+}
+.vspace20 {
+	margin: 10px 0px 20px 0px;
+}
+
+
+/* Text styles and font sizing */
+h2  {
+	font-size: 70%;
+	font-weight: bold;
+	margin: 0px 0px 5px 0px;
+}
+.text70 h2  {
+	font-size: 102%;
+	font-weight: bold;
+	margin-bottom: 4px;
+}
+
+
+.text65  {
+	font-size: 65%;
+	line-height: 12px;
+}
+
+.text70  {
+	font-size: 70%;
+	line-height: 12px;
+}
+
+.text70 dt {
+	font-size: 102%;
+	font-weight: bold;
+}
+
+
+/* link styles */
+a:link {
+	color: #8E2344;
+	text-decoration: underline;
+}
+a:visited {
+	color: #8E2344;;
+	text-decoration: underline;
+}
+a:hover {
+	color: #FCA311;
+	text-decoration: underline;
+}
+a:active  {
+	color: #8E2344;
+	text-decoration: underline;
+}
+
+.redlink {
+	font-size: 65%;
+	line-height: 10px;
+	font-weight: normal;
+	color: #8E2344;	
+	text-transform: uppercase;
+}
+
+a.redlink:link, a.redlink:visited {
+	text-decoration: none;
+	color: #8E2344; 
+}
+
+a.redlink:hover, a.redlink:active {
+	text-decoration: underline;
+	color: #8E2344; 
+}
+
+	
+

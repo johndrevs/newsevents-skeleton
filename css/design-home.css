@@ -1,0 +1,104 @@
+	/* sidebar */
+#sidebar {
+	background: #F2F2F2;
+}
+
+#sidebar h2 {
+	background: #FFBF80 url(../images/whats_new_icon.gif) no-repeat;
+	border-bottom: 1px solid #FFF;
+}
+
+#sidebar h2 a {
+	padding: 7px 0 6px 4px;
+	margin-left: 26px;
+	background: #FF9834 url(../images/whats_new_slash.gif) top right no-repeat;
+	height: 30px;
+	heigh\t: 17px;
+	overflow/**/: hidden;
+}
+
+#sidebar div {
+	border-bottom: 1px solid #FFF;
+}
+
+#sidebar p.archive {
+	margin: 0;
+	padding: 10px 0 0 40px;
+	height: 39px;
+	heigh\t: 29px;
+	background: #E9E9E9 url(../images/grey_arrow.gif) left no-repeat;
+}
+
+#sidebar .blog {
+	width: auto;
+	padding: 1.5em 1.5em 3.5em;
+	border-bottom: 1px solid #FFF;
+}
+
+#sidebar .blog h3,
+#sidebar .blog p {
+	margin: 0;
+}
+
+
+	/* primarily content */
+#content h3 {
+	margin: 2.5em 0 0;
+	clear: both;
+}
+
+#content .coverbox {
+	border: 1px solid #666; 
+	float: left;
+	margin: 4px 4px 4px 0;
+}
+
+
+
+#currentFeature h2 {
+	padding-bottom: 1.3em;
+	margin-top: 0.5em;
+	margin-bottom: -2.5em;
+}
+
+#pastFeature h2 {
+	padding-bottom: 1.4em;
+	margin-top: 1em;
+	margin-bottom: -2.5em;
+}
+
+	/*pullquote */
+
+#currentFeature { 
+	text-align: center; 
+}	
+
+#currentFeature p,
+#currentFeature table,
+#currentFeature h2,
+#currentFeature td,
+#currentFeature form
+ { 
+	text-align: left; 
+}	
+
+#currentFeature td.right
+ { 
+	text-align: right; 
+}	
+
+	
+#content blockquote.pullquote {
+	margin-left: auto;
+	margin-right: auto;
+}
+	
+#content blockquote.pullquote p cite {
+	color: #666;
+	display: block;
+	text-align: right;
+	padding: 6px;
+	margin: 0 -5px;
+	background: #E5E5E5 url(../images/quote-bottom.gif) bottom left no-repeat;
+	border-top: 1px solid #FFF;
+}

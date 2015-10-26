@@ -1,0 +1,4 @@
+End of file encountered while parsing (tag "COMPONENT" with attributes classid=nexus/components/Select code=/System/Components/nexusComponents.jar select=$node.contribution('landing page>). 
+Invalid quoted string 'around' encountered while parsing (tag "SELECT" with attributes). 
+Invalid character (,) encountered while parsing (tag "CFIF" with attributes x= LTE=). 
+End of file encountered while parsing (tag "COMPONENT" with attributes classid=nexus/components/AssetQuery code=../../System/Components/nexusComponents.jar filter=A.AssetType='Departments' or A.AssetType='Directory>). 

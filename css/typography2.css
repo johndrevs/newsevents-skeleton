@@ -1,0 +1,168 @@
+	/*type*/
+body {
+	font-size: 100%;
+}
+
+body,
+
+#content blockquote cite {
+	font-family: Arial, sans-serif; 
+}	
+
+
+TH.ListHeading {
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 90%;
+	color: #333333;
+	text-align: center;
+	background-color: #cccccc;
+	font-weight: bold;
+	vertical-align: top;
+	}
+TR.ListPrimary {
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 90%;
+	color: #333333;
+	background-color: #dddddd;
+	vertical-align: top;
+	}
+TR.ListAlternate {
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 90%;
+	color: #333333;
+	background-color: #eeeeee;
+	vertical-align: top;
+	}
+TD.ViewHeading {
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 90%;
+	color: #333333;
+	text-align: center;
+	background-color: #cccccc;
+	font-weight: bold;
+	vertical-align: top;
+	}
+TD.ViewLeft {
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 90%;
+	color: #333333;
+	background-color: #eeeeee;
+	vertical-align: top;
+	text-align: left;
+	border-width: 1px;
+	border-color: #dddddd;
+	border-style: solid;
+	}
+TD.ViewRight {
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 90%;
+	color: #333333;
+	background-color: #ffffff;
+	vertical-align: top;
+	text-align: left;
+	border-width: 1px;
+	border-color: #eeeeee;
+	border-style: solid;
+	}
+TD.EditLeft {
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 80%;
+	color: #666666;
+	background-color: #dddddd;
+	vertical-align: top;
+	text-align: right;
+	border-width: 1px;
+	border-color: #cccccc;
+	border-style: solid;
+	}
+TD.EditRight {
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 80%;
+	color: #333333;
+	background-color: #eeeeee;
+	vertical-align: top;
+	text-align: left;
+	border-width: 1px;
+	border-color: #cccccc;
+	border-style: solid;
+	}
+	
+#sortNav,
+#search,
+#adminNav,
+#globalNav,
+#footer,
+.ad {
+	font-size: 0.7em;
+}
+	
+#content,
+#sidebar,
+#content blockquote.pullquote cite {
+	font-size: 0.8em;
+	line-height: 1.5;
+}
+
+#content li {
+	font-size: 0.95em;
+}
+
+
+#footer .ad,
+#sidebar h3,
+#sidebar h2,
+
+#article span.pullquote {
+	font-size: 1em;
+}
+
+#author #content li a {
+	font-size: 1.05em;
+}
+
+
+#type h2,
+#topic h2,
+#title h2,
+#pastFeature h3 {
+	font-size: 1.25em;
+}
+
+
+#currentFeature h3 {
+	font-size: 1.0em;
+}
+
+#currentFeature actions {
+	background-color: Aqua;
+}
+
+#article h2,
+#currentFeature h2 {
+	font-size: 1.6em;
+}
+
+#sortNav a,
+#adminNav a,
+#globalNav a,
+#sidebar h2 a {
+	text-decoration: none;
+}
+
+
+#sortNav {
+	text-transform: lowercase;
+}
+#adminNav {
+	text-transform: lowercase;
+}
+
+
+
+#footer .banner.ad a {
+	font-weight: normal;
+}
+
+
+
+

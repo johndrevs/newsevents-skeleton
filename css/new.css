@@ -1,0 +1,201 @@
+
+
+body, td{ font-family: Arial,Helvetica,sans-serif;font-size: 80%;
+	color: #333333; }
+	
+.main_body {padding-left: 20px;padding-right: 10px;}
+	
+.accessbar {
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 80%;
+	color: #ffffff;
+	font-weight: bold;
+
+}
+
+.nav { 
+
+	top: 23px;
+	left: 2px;
+	margin: 0;
+	padding: 0;
+	width: 184px;
+	border-top: 2px solid #FFF;
+}
+
+.nav li {
+border-bottom: 2px solid #FFF;
+	list-style: none;
+}
+
+
+.nav li a {
+	font-family: Verdana,Arial,Helvetica,sans-serif;
+	font-size: 85%;
+	padding-top: 6px;
+	text-transform: lowercase;
+	padding-left: 28px;
+	width: 180px;
+	wid\th: 182px;
+	height: 42px;
+	heigh\t: 20px;
+	background: #F1EFE2 url(/newsevents/images/sidebar_bg1.gif) 0 52px;
+	text-decoration: none;
+	overflow: hidden;
+	border-top: 1px solid #FFF;
+	color: #444;
+}
+.nav li.active a,
+.nav li a:hover {
+	background-position: 0 26px;
+}
+
+
+
+
+table.globalnav th {
+
+text-decoration: none;
+font-weight:normal;
+	font-family: Verdana,Arial,Helvetica,sans-serif;
+	font-size: 65%;
+	color: #444;
+
+
+}
+
+table.globalnav th a{
+	
+text-decoration: none;
+	color: #444;
+	
+}
+
+table.tabulargrey {
+	border: 1px solid #CCC;
+	padding: 0px;
+	
+}
+
+table.tabulargrey th {
+	border-bottom: 1px solid #999;
+	padding: 3px;
+	background-color: #CCC;
+	text-align: left;
+	vertical-align: top;
+	font-size: 70%; font-family: verdana, tahoma, arial, helvetica, sans-serif; line-height: 1.2;
+	
+}
+table.tabulargrey td {
+	color: #333333;
+	background-color: #eeeeee;
+	vertical-align: top;
+	text-align: left;
+	border-width: 1px;
+	border-color: #dddddd;
+	border-style: solid;
+	font-size: 70%; font-family: verdana, tahoma, arial, helvetica, sans-serif; line-height: 1.2;
+	
+}
+.button{
+	border-color: #666;
+	font:  Arial,Verdana, Helvetica, sans-serif;
+	border-width: 1px;
+	background-color: #FFCC33;
+	cursor: hand;
+		font-size: 95%;
+	text-align: center;
+	text-transform: lowercase;
+}
+
+.author {
+	background: url(../images/author.gif) left no-repeat;
+	padding: 0 1em 0 12px;
+}
+
+.date {
+	background: url(../images/permalink.gif) left no-repeat;
+	padding: 0 1em 0 12px;
+
+}
+
+/*-------------------------------------------------
+LOGIN SCREEN (.login is body class)
+-------------------------------------------------*/
+
+.login div.Container {
+	width: 500px;
+	margin: 60px auto 20px auto;
+	min-width: inherit;
+}
+
+.login h1 {
+	margin-bottom: 20px;
+}
+
+
+.login dl {
+	margin: 10px 0 0 0;
+}
+
+.login p {
+	margin: 10px 0 0 0;
+}
+
+.login dt {
+	float: left;
+	width: 80px;
+	font-size: 14px;
+	line-height: 24px;
+}
+
+.login dd {
+	margin: 0 0 5px 90px;
+	font-size: 11px;
+	line-height: 24px;
+	color: #666;
+	margin-left: 80px;
+}
+
+.login input {
+	font-size: 14px;
+}
+
+.login dd span {
+	color: #ccc;
+}
+
+.login input#username {
+	width: 300px;
+}
+
+.login input#password {
+	width: 150px;
+	margin-right: 5px;
+}
+
+.login input#emailpassword {
+	vertical-align: middle;
+	margin-right: 5px;
+}
+.login div.AlertGood,
+.login div.AlertBad {
+	margin: 10px 0 20px 0;
+}
+
+.login div#Dialog {
+	border: 8px solid #990033;
+	padding: 15px 20px 10px 20px;
+	text-align: left;
+	background: #fff;
+}
+.AlertGood {
+	text-align: left;
+	border-top: 1px solid #9c9;
+	border-bottom: 1px solid #9c9;
+	padding: 5px 5px 5px 30px;
+	font-size: 11px;
+	margin: 0 20px 15px 20px;
+	color: #060;
+
+}

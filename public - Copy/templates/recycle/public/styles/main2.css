@@ -1,0 +1,33 @@
+
+
+	/* Document listing styles. */
+		.Documents_Link {
+			font-weight: normal;
+		}
+		.Documents_List {
+			font-family:arial;
+			font-weight: normal;
+			}
+		.Documents_ListItem {
+			margin-top:10px;
+			font-weight: normal;
+			}
+		.Documents_Teaser {
+			margin-left: 10px;
+			font-weight: normal;
+			}
+		.Documents_TeaserFirst {
+			margin-left: 10px;
+			font-weight: normal;
+			}
+	
+		/* This is the arrow bullets. */
+		.Documents_Title {
+			color: #996600;
+			font-weight: bold;
+			margin-left: 12px;
+			text-indent: -12px;
+		}
+
+	
+			

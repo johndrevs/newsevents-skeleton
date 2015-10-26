@@ -1,0 +1,50 @@
+
+<cfinclude template="/newsevents/public/ssi/header_61807.cfm">
+<h2>University Newsroom</h2>
+	<div id="content_text">
+
+<p>The Loyola University comprehensive news site is brought to you by <a href="http://www.luc.edu/umc/">University Marketing and Communications</a>.<br>
+<a href="mailto:news@luc.edu">Contact us</a> with any questions, or <a href="http://orpheus.it.luc.edu/media/subscribe.cfm">subscribe to our eNews service</a> to receive e-mail updates.</p>
+
+<!--
+<ul>
+<form method="post" action="news_release_list.cfm?display=search">
+<img src="images/news_search.gif" valign="top"><input type="text" align="top" class="searchbox" name="q" maxlength="255" value=""/><input type="image" align="top" src="http://www.luc.edu/images/go_btn.gif" alt="Search"></form>
+</ul>
+-->
+
+<!-- content table -->
+
+<!-- end headlines pagelet -->
+ <div id="holder"><cfinclude template="/newsevents/public/pagelets/headlines.cfm">
+<!-- press room pagelet -->
+					<cfinclude template="/newsevents/public/pagelets/pressroom.cfm">
+<!-- end press room pagelet -->
+<!-- pubs & media pagelet -->
+					<cfinclude template="/newsevents/public/pagelets/publications_media.cfm">
+<!-- end pubs & media pagelet -->
+
+<!-- faculty expert pagelet -->
+					<cfinclude template="/newsevents/public/pagelets/faculty_experts.cfm">
+<!-- end faculty expert pagelet -->
+
+<!-- loyola library pagelet -->
+					<cfinclude template="/newsevents/public/pagelets/loyola_library.cfm">
+<!-- end loyola library pagelet -->
+
+
+  <!------>
+  
+  <!-- loyola people pagelet 
+					<cfinclude template="/newsevents/public/pagelets/loyola_people.cfm">
+<!-- end loyola people pagelet -->
+
+	<!-- upcoming events pagelet -->
+
+<!--- <!-- upcoming events pagelet -->
+					<cfinclude template="/newsevents/public/pagelets/upcoming_events.cfm">
+<!-- end upcoming events pagelet --> --->
+
+</div></div></div></div>
+		
+	<cfinclude template="/newsevents/public/ssi/footer_61807.cfm">

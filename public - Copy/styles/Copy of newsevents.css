@@ -1,0 +1,307 @@
+/* Container table styles */
+
+
+
+
+
+
+/*styles for calendar table data output*/
+table#calendar {
+	border-collapse: collapse;
+	width: 98%;
+	padding: 0;
+}
+table#calendar td#linkrow { 
+	border: 0; 
+	padding: 0 5px 0 0;
+}
+table#calendar td#linkrow2 { 
+	border: 0;
+	padding: 0;
+}
+table#calendar th {
+	border-top: 4px solid #cacaca;
+	border-bottom: 1px solid #666;
+	padding: 10px 5px;
+	text-align: center;
+	font-weight: bold;
+	background-color:#ffffff;
+}
+table#calendar th h2 {
+	margin: 0;
+	padding: 0;
+	font-size:1.5em;
+}
+table#calendar td {
+	border: 1px solid #CCC;
+	padding: 5px;
+	vertical-align: top;
+}
+table#calendar td.wknd {
+	background-color: #F0F0F0;
+}
+table#calendar td.wkhdr {
+	padding: 2px;
+	background-color: #FFFDE8;
+	font-weight: bold;
+	text-align: center;
+	width: 14%;
+}
+table#calendar td.wkndhdr {
+	padding: 2px;
+	background-color: #CCC;
+	font-weight: bold;
+	text-align: center;
+	width: 15%;
+}
+table#calendar h3 {
+	margin: 0;
+	padding: 0;
+}
+table#calendar div#on {
+	background-color: #FEEDC5;
+	margin: -5px -5px 0 -5px;
+	padding: 5px;
+	width: 20%;
+}
+
+table#calendar ul {
+	margin: 0px 0px 10px 0px;
+	list-style-type: none;	
+}
+table#calendar ul li {
+	margin-top: 10px;
+}
+/*ul styling for single day view list*/
+table#calendar ul.dayview {
+	margin: 0px 0px 10px 25px;
+	list-style-type: disc;
+	line-height: 1.2;	
+}
+table#calendar ul.dayview li {
+	margin-top: 15px;
+}
+div#details {
+	margin: 11px;
+	width: 550px;
+}
+
+/*Event detail styles*/
+table#detail_table {
+	padding: 0;
+	border: 0;
+}
+table#detail_table td {
+	padding: 4px;
+	font-size: 80%;
+	vertical-align: top;
+	border: 0;
+}
+table#detail_table td.label {
+	color: #666;
+}
+/*register button*/
+table#detail_table ul.register {
+	margin: 5px 0;
+	padding: 0;
+}
+table#detail_table ul.register li {
+	margin: 0;
+	padding: 5px;
+	display: inline;
+	vertical-align: middle;
+	background-color: #FFFDE8;
+	border: 1px solid #CCC;
+	font-size: 130%;
+	font-weight: bold;
+}
+div#futuredates {
+	border-top: 1px dashed #CCC;
+	padding: 10px 0 0 0;
+	margin: 10px 0;
+}
+div#futuredates ul {
+	margin: 0px 0px 10px 18px;
+	padding: 0px;
+	list-style-type: disc;
+	line-height: 1.2;
+}
+div#futuredates ul li {
+	margin-top: 5px;
+}
+/*end event detail styles*/
+/*END styles for calendar table data output*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+div#pageblurb {
+	width: 50%;
+	margin: 0px 10px 0px 0px;
+	float: left;
+	font-size: 70%;
+	line-height: 1.2;
+}
+div#pageblurb li {
+	margin-bottom: 5px;
+}
+/*get rid of bottom margin on last li to create uniform 15 px margin*/
+div#pageblurb ul {
+	margin-bottom: -5px;
+}
+/*filtered calendar header*/
+div#pageblurb h1 {
+	margin: 0;
+	padding: 0;
+	font-size: 160%;
+}
+
+
+
+
+
+
+
+
+
+/* styles for columns of content on news */
+.column {
+	margin: 0px 15px 0px 15px;
+}
+.column_right {
+	margin: 0px 15px 0px 20px;
+}
+td.dashrule {
+	border-left: 1px dashed #CCCCCC;
+}
+
+/*news pagelet styling*/
+#holder{ margin: 0 2.5% 15px 2.5%;}
+.pagelet {
+  margin: 0 0 15px 0;
+  padding: 0;
+  border: 1px solid #333;
+  background-color: #F0F0F0;
+  width: 100%;
+  clear: both;
+}
+.pagelet_left {
+  margin: 0 1% 15px 0;
+  padding: 0;
+  border: 1px solid #333;
+  background-color: #FFFDE8;
+  float: left;
+  clear: left;
+  width: 48%;
+}
+.pagelet_right {
+  margin: 0 0 15px 1%;
+  padding: 0;
+  border: 1px solid #333;
+  background-color: #FFFDE8;
+  float: right;
+  clear: right;
+  width: 48%;
+}
+
+.pagelet_title {
+  margin: 0;
+  padding: 2px;
+  display: block;
+  border: 1px solid #FDBB57;
+  font-weight: bold;
+  color: white;
+  background-color: #A30046;
+}
+
+.pagelet_content {
+  margin: 0;
+  padding: 5px;
+}
+.pagelet_grey {
+  margin: 0 0 15px 0;
+  padding: 0;
+  border: 1px solid #CCC;
+  background-color: #F0F0F0;
+  width: 48%;
+   float: right;
+  clear: right;
+}
+.pagelet_greytitle {
+  margin: 0;
+  padding: 3px;
+  display: block;
+  border: 1px solid #CCC;
+  font-weight: bold;
+  color: #333;
+  background-color: #CCC;
+}
+/*publication headers*/
+.pagelet_title h2 {
+	color: #fff;
+	margin: 4px 0 4px 0;
+	font-size: 140%;	
+}
+
+/*space the dl's on publication view*/
+dl.pub dd {  
+	margin-bottom: 15px;
+}
+
+
+/*Headline news output styles*/
+ul.headlines, ul.headlinesleft, ul.headlinesright {
+	margin: 0px 20px 10px 20px;
+	padding: 0px;
+	list-style-type: disc;
+	line-height: 1.2;
+}
+ul.headlines li {
+	margin-top: 5px;
+}
+
+.headlinesleft, ,headlinesright{width:50%;}
+.headlinesright {float:right;margin-top:-9.5em;margin-right:100px;}
+
+
+
+
+
+.copyimage_l {
+	margin: 0px 10px 5px 0px;
+	float: left;
+}
+.copyimage_r {
+	margin: 0px 0px 5px 10px;
+	float: right;
+}
+/* generic spacing */
+.floatleft {
+	float: left;
+	white-space:nowrap;
+	
+}
+.floatright {
+	float: right;
+}
+
+
+
+
+.calendartool {
+	background-color: #FEEDC5;
+	margin: -5px -5px 0 -5px;
+	padding: 5px;
+	width: 20%;
+}
+

@@ -1,0 +1,20 @@
+@charset "utf-8";
+/* CSS Document */
+#page-box {
+	width:770px;
+	margin:0 auto;
+}
+#content {
+
+	width:768px;
+
+}
+#union-box {
+
+	background:url(/newsevents/public/skins/LUFocus/images/bg-sidebar.gif) repeat-y 100% 0;
+
+}
+#main-content {
+
+	width:503px;
+}

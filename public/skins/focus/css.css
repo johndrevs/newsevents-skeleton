@@ -1,0 +1,70 @@
+#doc {font-family: verdana, tahoma, arial, helvetica, sans-serif;}
+
+#hd {background-image: url(http://www.luc.edu/focus/images/masthead.jpg);background-repeat: no-repeat;
+height: 140px;
+background-position: center;
+background-color: #a30046;}
+
+h1 {color: #a30046;
+font-size: 1px;}
+
+h2{font-weight: bold;}
+
+#bd{padding: .75em;border: .05em #cacaca solid;}
+
+#bd ul{margin-bottom:1em;}
+#bd li{font-size: .8em;
+
+line-height: 1.5em;
+list-style-type: disc;
+margin-left: 1.5em;}
+
+#yui-main {
+background-color: #ffffff;
+}
+
+p {
+	margin: 0px 0px 10px 0px;
+}	
+
+h3 {
+font-size: 1em;
+font-weight: bold;
+margin-bottom:1em;
+text-transform: none;}
+h4 {
+font-size: 1.15em;
+font-weight: bold;
+margin-bottom:.5em;
+text-transform: none;
+color: #a30046;}
+em{font-style:italic;}
+ h3 em{font-weight:bold;}
+a {color: #a30046;
+text-decoration:none}
+
+a:link {}
+
+a:visited {}
+
+a:hover {text-decoration: underline}
+
+a:active {}
+
+#blurb, td, p {margin:1em 0;font-size: .82em;}
+#ft{margin:1em 0 0 0;
+background-image: url(http://www.luc.edu/supports/images/weblogo.gif);
+background-repeat: no-repeat;height:200px;
+background-position: 600px 1em;}
+
+#ft li {display: inline;font-family:Georgia, Times, "Times New Roman", serif;
+}
+
+#ft li a{padding:25px;
+background-image: url(star.gif);
+background-repeat: no-repeat;
+background-position: right;}
+
+#callout {}
+
+#blurb img{border: .05em #939393 solid;float:right;margin:1em;}

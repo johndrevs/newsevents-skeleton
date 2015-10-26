@@ -1,0 +1,3 @@
+
+<cfloop query="getnews"><cfset line="#line#"&"<li><a href='http://maia.mw.luc.edu/newsevents/public/news.cfm?newsid=#newsid#'"&">#shorttitle#</a></li>"></cfloop>
+

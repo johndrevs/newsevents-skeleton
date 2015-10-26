@@ -1,0 +1,160 @@
+#lutube.yui-panel, #two.yui-panel {border:none;
+overflow:visible;
+}
+
+#doc{width:890px;}
+
+
+
+
+#lutube.yui-panel .hd, #hd.lutube {padding:0;
+border:none;
+background-image:url("/luc/supports/images/tubebanner.jpg");
+background-color:transparent;
+color:#000;
+height:120px;
+
+text-align:right;
+overflow:visible;
+background-repeat: no-repeat;
+top:0;
+right:0;}
+
+#two.yui-panel .hd{background-color:#a30046;}
+#two.yui-panel .bd,#two.yui-panel .ft {background-color:#a30046;}
+#two.yui-panel{
+height:80px;
+top:0;
+right:0;
+
+background-image:url("../images/rt2.gif");
+position:absolute;
+background-repeat: no-repeat;}
+
+#hd .tl {
+height:80px;
+width:200px;
+float:left;
+color:#ffffff;
+margin: 85px 0 0 85px;
+
+
+}
+
+#tright {
+width:400px;
+
+float:right;
+color:#000000;
+margin:2px 20px 0 0;
+
+
+}
+#tright ul {text-align: center;}
+
+ #tright li {list-style: none;
+display: inline;
+text-transform: uppercase;padding:0px;font-size: 85%;
+float: left;
+
+font-weight: bold;
+
+text-decoration:none;}
+
+#tright li.last a, #tright li a{border-right: .1em #a30046 solid;
+
+}
+
+
+
+
+#featured.yui-u {
+padding:1em;}
+
+#list.yui-u {
+background-color: #F0F0F0;
+border: .1em #acacac solid;
+font-size: .8em;
+color:#000000;
+margin-top:4em;
+padding:1em;}
+
+#description.yui-u {font-size: 1em;margin-top:4em;padding:.2em;}
+#description em{color:#000000;padding:.2em;}
+#description h3 {font-size: 1.1em;font-weight:bold;padding:.2em;color:#a30046;}
+
+#list.yui-u dt{margin-top:2em;}
+
+#bd.lutube {
+border: none;}
+
+
+
+#hd.lutube h1{margin-left:-2500px;}
+
+#morevideo {background-color: #c0c0c0;border: .1em #000000 solid;padding: 2em; margin:1em;color:#000000}
+
+#lutube.yui-panel .hd .tl {width:40px;
+height:80px;
+top:0;
+left:0;
+background-image:url("../images/lt2.gif");
+position:absolute;
+background-repeat: no-repeat;}
+
+#lutube.yui-panel .hd .tr {
+height:80px;
+top:0;
+right:0;
+
+background-image:url("../images/rt2.gif");
+position:absolute;
+background-repeat: no-repeat;}
+
+.tr img {
+margin:10px;}
+
+#lutube.yui-panel .bd {overflow:hidden;
+padding:4px;
+
+border-bottom:1px solid #aeaeae;
+border-right:2px solid #a30046;
+border-left:2px solid #a30046;
+
+}
+
+#lutube.yui-panel .ft {font-size:75%;
+color:#666;
+padding:2px;
+overflow:hidden;
+border:2px solid #a30046;
+border-top:none;
+background-color:#aeaeae;}
+
+#video {background-color:#f5e4b7;
+margin:1em 2em 0em 4em;
+}
+
+.videsrc {background-color:#f5e4b7;clear:both;}
+
+#video h2 {color:#a30046;
+padding:.5em;
+text-align:left;
+font-weight:bold;
+font-size:105%;}
+
+.video1{border: .1em #cacaca solid;padding: 2em; margin:1em;}
+
+.lutube p{color:#000000;padding:.2em;}
+
+
+
+dd h4{color:#000000;font-weight:normal;padding:5px 0 5px 0;}
+.results img{float:right;}
+.results dt a{font-weight:bold;padding:5px 0 15px 0;text-decoration:none;font-size:1.25em;}
+.author{color:#000000;font-weight:bold;}
+
+#tright li A:link    { color: #eeb111 }    /* unvisited links */
+#tright li A:visited { color: #eeb111 }   /* visited links   */
+#tright li A:hover   { color: #cccccc } /* user hovers     */
+#tright li A:active  { color: #cccccc }   /* active links    */

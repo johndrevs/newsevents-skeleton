@@ -1,0 +1,7 @@
+<cfset namelist='Doyle Center,Arrupe House - Jesuit Residence,Santa Clara Hall,Centennial Forum Student Union,Mertz Hall,Dorothy L. Weil Plaza,Mullady Memorial Theatre,Quinn Quadrangle,Crown Center/Undergraduate Admission Office,Fine Arts Annex,Alumni Gym,Joseph J. Gentile Center,Dumbach Hall,Cudahy Library,Fordham Hall/ Granada Center,Halas Sports Center,Halas Athletic Field and Track,Cudahy Science Hall,Jesuit Residence,Campus Safety,Flanner Hall   ,Damen Hall/Finnegan Auditorium,Madonna della Strada Chapel,Mundelein Center,Coffey Hall,Piper Hall,Athletic Field and Stevens Building
+Fairfield Hall,Simpson Living - Learning Center,Seattle Hall,Xavier Hall,Holy Cross Hall,Rockhurst Hall,Wright Hall (BVM Residence),Sullivan Center,The Yellow House,Quinlan Life Sciences Education & Research Center,Creighton Hall,Facilities Department,Tennis Courts,Power Plant,South Lawn,Winthrop Hall,Georgetown Hall'>
+
+<cfloop index="n" list="#variables.namelist#" delimiters=","><cfquery name="insert_locations" datasource="mcs_update">
+			INSERT INTO CUNVMCS.locations(isactive,location_name,address,subaddress,location_link,creator)
+				VALUES('1','#n#','','','http://www.luc.edu/info/maps/lsc.shtml','1')
+		</cfquery></cfloop>

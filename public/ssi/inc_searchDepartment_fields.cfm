@@ -1,0 +1,61 @@
+
+<cfparam name="qryGetTable_Department.DEPT_NBR" default="">
+<cfparam name="qryGetTable_Department.BUILDING_CODE" default="">
+<cfparam name="qryGetTable_Department.DEPT_ROOM_NBR" default="">
+<cfparam name="qryGetTable_Department.DEPT_NAME" default="">
+<cfparam name="qryGetTable_Department.PRIMARY" default="">
+<cfparam name="qryGetTable_Department.COUNTRY_CODE" default="">
+<cfparam name="qryGetTable_Department.AREA_CODE" default="">
+<cfparam name="qryGetTable_Department.PHONE_NBR" default="">
+<cfparam name="qryGetTable_Department.FAX_COUNTRY_CODE" default="">
+<cfparam name="qryGetTable_Department.FAX_AREA_CODE" default="">
+<cfparam name="qryGetTable_Department.FAX_NBR" default="">
+
+<cfparam name="getDept_P.DEPT_NBR" default="">
+<cfparam name="getDept_P.BUILDING_CODE" default="">
+<cfparam name="getDept_P.DEPT_ROOM_NBR" default="">
+<cfparam name="getDept_P.HR_DEPT" default="">
+<cfparam name="getDept_P.DEPT_NAME" default="">
+<cfparam name="getDept_P.PRIMARY" default="">
+<cfparam name="getDept_P.COUNTRY_CODE" default="">
+<cfparam name="getDept_P.AREA_CODE" default="">
+<cfparam name="getDept_P.PHONE_NBR" default="">
+<cfparam name="getDept_P.FAX_COUNTRY_CODE" default="">
+<cfparam name="getDept_P.FAX_AREA_CODE" default="">
+<cfparam name="getDept_P.FAX_NBR" default="">
+
+<cfparam name="getDept_S.DEPT_NBR" default="">
+<cfparam name="getDept_S.BUILDING_CODE" default="">
+<cfparam name="getDept_S.DEPT_ROOM_NBR" default="">
+<cfparam name="getDept_S.DEPT_NAME" default="">
+<cfparam name="getDept_S.PRIMARY" default="">
+<cfparam name="getDept_S.COUNTRY_CODE" default="">
+<cfparam name="getDept_S.AREA_CODE" default="">
+<cfparam name="getDept_S.PHONE_NBR" default="">
+<cfparam name="getDept_S.FAX_COUNTRY_CODE" default="">
+<cfparam name="getDept_S.FAX_AREA_CODE" default="">
+<cfparam name="getDept_S.FAX_NBR" default="">
+
+<cfparam name="getDept_S_A.DEPT_NBR" default="">
+<cfparam name="getDept_S_A.BUILDING_CODE" default="">
+<cfparam name="getDept_S_A.DEPT_ROOM_NBR" default="">
+<cfparam name="getDept_S_A.DEPT_NAME" default="">
+<cfparam name="getDept_S_A.PRIMARY" default="">
+<cfparam name="getDept_S_A.COUNTRY_CODE" default="">
+<cfparam name="getDept_S_A.AREA_CODE" default="">
+<cfparam name="getDept_S_A.PHONE_NBR" default="">
+<cfparam name="getDept_S_A.FAX_COUNTRY_CODE" default="">
+<cfparam name="getDept_S_A.FAX_AREA_CODE" default="">
+<cfparam name="getDept_S_A.FAX_NBR" default="">
+
+<cfparam name="getDept_S_B.DEPT_NBR" default="">
+<cfparam name="getDept_S_B.BUILDING_CODE" default="">
+<cfparam name="getDept_S_B.DEPT_ROOM_NBR" default="">
+<cfparam name="getDept_S_B.DEPT_NAME" default="">
+<cfparam name="getDept_S_B.PRIMARY" default="">
+<cfparam name="getDept_S_B.COUNTRY_CODE" default="">
+<cfparam name="getDept_S_B.AREA_CODE" default="">
+<cfparam name="getDept_S_B.PHONE_NBR" default="">
+<cfparam name="getDept_S_B.FAX_COUNTRY_CODE" default="">
+<cfparam name="getDept_S_B.FAX_AREA_CODE" default="">
+<cfparam name="getDept_S_B.FAX_NBR" default="">

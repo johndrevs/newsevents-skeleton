@@ -1,0 +1,2 @@
+message = "<li><span class='keylinks'><a href='http://maia.mw.luc.edu/newsevents/public/events_detail.cfm?eventid=15686' class='key'>Oct. 1: Sukkot Celebration</a></span></li><li><span class='keylinks'><a href='http://maia.mw.luc.edu/newsevents/public/events_detail.cfm?eventid=16137' class='key'>Oct. 29: EL Tracks - Michael Garanzini, S.J.</a></span></li><li><span class='keylinks'><a href='http://maia.mw.luc.edu/newsevents/public/events_detail.cfm?eventid=15838' class='key'>Oct. 16: Undecided Majors Workshop</a></span></li>"
+	document.write(message);
